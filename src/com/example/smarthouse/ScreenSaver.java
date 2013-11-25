@@ -19,5 +19,7 @@ public class ScreenSaver extends Activity {
 		return true;
 	}
 	//lalal
+	
+	public void test(){}
 
 }
