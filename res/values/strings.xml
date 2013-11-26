@@ -1,8 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">SmartHouse</string>
+    <string name="app_name">CCU_Test</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-
+    <string name="action_search">Search</string>
+    <string name="Consumo">placeholderVal</string>
+    <string name="UnlockProgress">placeholderVal</string>
+    <string name="notfText">NOTIFICAÇÂO</string>
+   
+    <string name="DigitalClock">DigitalClock</string>
+    <string name="Notificacao1">Notificação1</string>
+    <string name="Notificacao2">Notificação2</string>
+    <string name="Notificacao3">Notificação3</string>
+    <string name="Notificacao4">Notificação4</string>
+    <string name="Notificacao5">Notificação5</string>
+    <string name="Notificacao6">Notificação6</string>
+    <string name="BACK_TEST">BACK_TEST</string>
+    <string name="Cozinha">Cozinha</string>
+    <string name="Sala">Sala de estar</string>
+    <string name="Quarto">Quarto de adultos</string>
+    <string name="Escritorio">Escritorio</string>
+    <string name="SalaJ">Sala de jantar</string>
+    <string name="Historico">Historico</string>
+    <string name="Hall">Hall de entrada</string>
+    <string name="OK">OK</string>
+    <string name="row1">row1</string>
+    <string name="row2">row2</string>
+    
 </resources>
