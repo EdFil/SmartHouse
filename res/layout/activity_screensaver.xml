@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="top"
+    android:orientation="vertical" >
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+        <DigitalClock
+            android:id="@+id/digitalClock1"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="DigitalClock" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:background="#00001F"
+            android:gravity="center"
+            android:text="row1"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="#00000F"
+            android:gravity="center"
+            android:text="row2"
+            android:textColor="#FFFFFF" />
+    </TableRow>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/tableRow1"
+        android:layout_toLeftOf="@+id/scrollView1"
+        android:gravity="center_vertical" >
+
+        <TextView
+            android:id="@+id/Consumo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:ems="10"
+            android:gravity="center"
+            android:text="@string/Consumo"
+            android:textSize="60sp" />
+
+        <SeekBar
+            android:id="@+id/seekBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true" />
+
+        <TextView
+            android:id="@+id/UnlockProgress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:ems="10"
+            android:gravity="center"
+            android:text="@string/UnlockProgress"
+            android:textSize="60sp" />
+
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/tableRow1" >
+
+        <LinearLayout
+            android:layout_width="94dp"
+            android:layout_height="wrap_content"
+            android:background="#00000E"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/Not1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notificação 1"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:onClick="onNotfClick"
+                android:clickable="true" />
+
+            <Button
+                android:id="@+id/Not2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notificação 2"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:onClick="onNotfClick"
+                android:clickable="true" />
+
+            <Button
+                android:id="@+id/Not3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notificação 3"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" 
+                android:onClick="onNotfClick"
+                android:clickable="true"/>
+
+            <Button
+                android:id="@+id/Not4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notificação 4"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:onClick="onNotfClick"
+                android:clickable="true" />
+
+            <Button
+                android:id="@+id/Not5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notificação 5"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"
+                android:onClick="onNotfClick"
+                android:clickable="true" />
+
+            <Button
+                android:id="@+id/Not6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Notificação 6"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp"                 
+                android:onClick="onNotfClick"
+                android:clickable="true"/>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>

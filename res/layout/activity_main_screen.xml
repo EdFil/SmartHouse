@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="top"
+    android:orientation="vertical" >
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true" >
+
+        <TableLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" >
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/backTest"
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="26dp"
+                    android:text="BACK_TEST" />
+
+                <Button
+                    android:id="@+id/Cozinha"
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="26dp"
+                    android:text="Cozinha" />
+
+                <Button
+                    android:id="@+id/Button05"
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="26dp"
+                    android:text="Sala" />
+
+                <Button
+                    android:id="@+id/Button04"
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="26dp"
+                    android:text="Sala" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/Button03"
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="26dp"
+                    android:text="Sala" />
+
+                <Button
+                    android:id="@+id/Button02"
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="26dp"
+                    android:text="Sala" />
+
+                <Button
+                    android:id="@+id/Button01"
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="26dp"
+                    android:text="Sala" />
+
+                <Button
+                    android:id="@+id/Sala"
+                    android:layout_width="130dp"
+                    android:layout_height="80dp"
+                    android:layout_marginLeft="26dp"
+                    android:text="Sala" />
+
+            </TableRow>
+        </TableLayout>
+
+    </HorizontalScrollView>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_below="@+id/horizontalScrollView1" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="#00000E"
+            android:orientation="horizontal" >
+
+            <Button
+                android:id="@+id/Not1"
+                android:layout_width="124dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="onNotfClick"
+                android:text="Notificação 1"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/Not2"
+                android:layout_width="124dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="onNotfClick"
+                android:text="Notificação 2"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/Not3"
+                android:layout_width="124dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="onNotfClick"
+                android:text="Notificação 3"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/Not4"
+                android:layout_width="124dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="onNotfClick"
+                android:text="Notificação 4"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/Not5"
+                android:layout_width="124dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="onNotfClick"
+                android:text="Notificação 5"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
+
+            <Button
+                android:id="@+id/Not6"
+                android:layout_width="124dp"
+                android:layout_height="match_parent"
+                android:clickable="true"
+                android:onClick="onNotfClick"
+                android:text="Notificação 6"
+                android:textColor="#FFFFFF"
+                android:textSize="10sp" />
+        </LinearLayout>
+
+    </HorizontalScrollView>
+
+</RelativeLayout>
