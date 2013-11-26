@@ -74,7 +74,7 @@
             android:text="@string/UnlockProgress"
             android:textSize="60sp" />
 
-		<com.example.smarthouse.VerticalSeekBar
+		<com.example.smarthouse.mainactivity.VerticalSeekBar
 		    android:id="@+id/seekBar"
 		    android:layout_width="wrap_content"
 		    android:layout_height="200dp"

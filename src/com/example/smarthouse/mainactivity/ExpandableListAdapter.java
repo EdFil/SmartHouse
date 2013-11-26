@@ -1,8 +1,9 @@
-package com.example.smarthouse;
+package com.example.smarthouse.mainactivity;
 
 import java.util.HashMap;
 import java.util.List;
- 
+
+import com.example.smarthouse.R;
 import android.content.Context;
 import android.graphics.Typeface;
 import android.view.LayoutInflater;

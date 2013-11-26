@@ -1,4 +1,6 @@
-package com.example.smarthouse;
+package com.example.smarthouse.popupsalerts;
+
+import com.example.smarthouse.R;
 
 import android.app.AlertDialog;
 import android.app.Dialog;

@@ -31,5 +31,7 @@
     <string name="AdicionarFav">Adicionar filme aos favoritos</string>
     <string name="Cancelar">Cancelar</string>
     <string name="Opcoes">Opcoes</string>
-    
+    <string name="title_activity_movie">MovieActivity</string>
+    <string name="title_activity_kitchen">KitchenActivity</string>
+
 </resources>

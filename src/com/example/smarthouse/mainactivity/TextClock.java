@@ -1,9 +1,11 @@
-package com.example.smarthouse;
+package com.example.smarthouse.mainactivity;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
+
+import com.example.smarthouse.R;
 
 import android.app.Activity;
 import android.os.Handler;
@@ -25,7 +27,7 @@ public class TextClock implements Runnable {
 	
 	SimpleDateFormat _dateDateFormat;
 	
-	TextClock(Activity activity){
+	public TextClock(Activity activity){
 		_dateDateFormat = new SimpleDateFormat("EEEE, d 'of' MMMM yyyy", Locale.getDefault());
 		
 		_currentTime = Calendar.getInstance().getTime();

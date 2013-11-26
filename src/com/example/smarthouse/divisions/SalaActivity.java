@@ -1,8 +1,13 @@
-package com.example.smarthouse;
+package com.example.smarthouse.divisions;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+
+import com.example.smarthouse.R;
+import com.example.smarthouse.mainactivity.ExpandableListAdapter;
+import com.example.smarthouse.mainactivity.TextClock;
+import com.example.smarthouse.popupsalerts.moviePopup;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;

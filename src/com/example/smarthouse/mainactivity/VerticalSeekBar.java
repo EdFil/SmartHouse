@@ -1,4 +1,4 @@
-package com.example.smarthouse;
+package com.example.smarthouse.mainactivity;
 
 import android.content.Context;
 import android.graphics.Canvas;

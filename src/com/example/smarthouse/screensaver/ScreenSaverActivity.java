@@ -1,9 +1,11 @@
-package com.example.smarthouse;
+package com.example.smarthouse.screensaver;
 
-import com.example.smarthouse.notfDialog;
+
 import com.example.smarthouse.DataVariables;
-import com.example.smarthouse.MainScreen;
 import com.example.smarthouse.R;
+import com.example.smarthouse.mainactivity.MainScreenActivity;
+import com.example.smarthouse.mainactivity.TextClock;
+import com.example.smarthouse.popupsalerts.notfDialog;
 
 import android.os.Bundle;
 import android.os.Handler;
@@ -14,7 +16,7 @@ import android.view.View;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-public class ScreenSaver extends FragmentActivity {
+public class ScreenSaverActivity extends FragmentActivity {
 
 	private TextClock _textClock;
 	private DataVariables _instance;
@@ -57,7 +59,7 @@ public class ScreenSaver extends FragmentActivity {
 		   public void onProgressChanged(SeekBar seekBar, int progress, 
 		     boolean fromUser) { 
 			   if(progress == 100) {
-				   Intent i = new Intent(getApplicationContext(), MainScreen.class);
+				   Intent i = new Intent(getApplicationContext(), MainScreenActivity.class);
 				   startActivity(i);
 			   }
 			
