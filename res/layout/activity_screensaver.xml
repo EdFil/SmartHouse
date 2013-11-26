@@ -18,7 +18,7 @@
             android:layout_height="37dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="DigitalClock" />
+            android:text="@string/DigitalClock" />
 
         <TextView
             android:layout_width="0dp"
@@ -95,9 +95,9 @@
                 android:id="@+id/Not1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Notificação 1"
+                android:text="@string/Notificacao1"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:onClick="onNotfClick"
                 android:clickable="true" />
 
@@ -105,9 +105,9 @@
                 android:id="@+id/Not2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Notificação 2"
+                android:text="@string/Notificacao2"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:onClick="onNotfClick"
                 android:clickable="true" />
 
@@ -115,9 +115,9 @@
                 android:id="@+id/Not3"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Notificação 3"
+                android:text="@string/Notificacao3"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" 
+                android:textSize="12sp" 
                 android:onClick="onNotfClick"
                 android:clickable="true"/>
 
@@ -125,9 +125,9 @@
                 android:id="@+id/Not4"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Notificação 4"
+                android:text="@string/Notificacao4"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:onClick="onNotfClick"
                 android:clickable="true" />
 
@@ -135,9 +135,9 @@
                 android:id="@+id/Not5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Notificação 5"
+                android:text="@string/Notificacao5"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"
+                android:textSize="12sp"
                 android:onClick="onNotfClick"
                 android:clickable="true" />
 
@@ -145,9 +145,9 @@
                 android:id="@+id/Not6"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Notificação 6"
+                android:text="@string/Notificacao6"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp"                 
+                android:textSize="12sp"                 
                 android:onClick="onNotfClick"
                 android:clickable="true"/>
         </LinearLayout>

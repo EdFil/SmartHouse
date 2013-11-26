@@ -14,7 +14,7 @@
         android:layout_alignParentTop="true" >
 
         <TableLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent" >
 
             <TableRow
@@ -27,28 +27,28 @@
                     android:layout_width="130dp"
                     android:layout_height="80dp"
                     android:layout_marginLeft="26dp"
-                    android:text="BACK_TEST" />
+                    android:text="@string/BACK_TEST" />
 
                 <Button
                     android:id="@+id/Cozinha"
                     android:layout_width="130dp"
                     android:layout_height="80dp"
                     android:layout_marginLeft="26dp"
-                    android:text="Cozinha" />
+                    android:text="@string/Cozinha" />
 
                 <Button
                     android:id="@+id/Button05"
                     android:layout_width="130dp"
                     android:layout_height="80dp"
                     android:layout_marginLeft="26dp"
-                    android:text="Sala" />
+                    android:text="@string/Sala" />
 
                 <Button
                     android:id="@+id/Button04"
                     android:layout_width="130dp"
                     android:layout_height="80dp"
                     android:layout_marginLeft="26dp"
-                    android:text="Sala" />
+                    android:text="@string/Quarto" />
             </TableRow>
 
             <TableRow
@@ -61,28 +61,28 @@
                     android:layout_width="130dp"
                     android:layout_height="80dp"
                     android:layout_marginLeft="26dp"
-                    android:text="Sala" />
+                    android:text="@string/Escritorio" />
 
                 <Button
                     android:id="@+id/Button02"
                     android:layout_width="130dp"
                     android:layout_height="80dp"
                     android:layout_marginLeft="26dp"
-                    android:text="Sala" />
+                    android:text="@string/SalaJ" />
 
                 <Button
                     android:id="@+id/Button01"
                     android:layout_width="130dp"
                     android:layout_height="80dp"
                     android:layout_marginLeft="26dp"
-                    android:text="Sala" />
+                    android:text="@string/Historico" />
 
                 <Button
                     android:id="@+id/Sala"
                     android:layout_width="130dp"
                     android:layout_height="80dp"
                     android:layout_marginLeft="26dp"
-                    android:text="Sala" />
+                    android:text="@string/Hall" />
 
             </TableRow>
         </TableLayout>
@@ -99,7 +99,7 @@
         android:layout_below="@+id/horizontalScrollView1" >
 
         <LinearLayout
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#00000E"
             android:orientation="horizontal" >
@@ -110,9 +110,9 @@
                 android:layout_height="match_parent"
                 android:clickable="true"
                 android:onClick="onNotfClick"
-                android:text="Notificação 1"
+                android:text="@string/Notificacao1"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/Not2"
@@ -120,9 +120,9 @@
                 android:layout_height="match_parent"
                 android:clickable="true"
                 android:onClick="onNotfClick"
-                android:text="Notificação 2"
+                android:text="@string/Notificacao2"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/Not3"
@@ -130,9 +130,9 @@
                 android:layout_height="match_parent"
                 android:clickable="true"
                 android:onClick="onNotfClick"
-                android:text="Notificação 3"
+                android:text="@string/Notificacao3"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/Not4"
@@ -140,9 +140,9 @@
                 android:layout_height="match_parent"
                 android:clickable="true"
                 android:onClick="onNotfClick"
-                android:text="Notificação 4"
+                android:text="@string/Notificacao4"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/Not5"
@@ -150,9 +150,9 @@
                 android:layout_height="match_parent"
                 android:clickable="true"
                 android:onClick="onNotfClick"
-                android:text="Notificação 5"
+                android:text="@string/Notificacao5"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
 
             <Button
                 android:id="@+id/Not6"
@@ -160,9 +160,9 @@
                 android:layout_height="match_parent"
                 android:clickable="true"
                 android:onClick="onNotfClick"
-                android:text="Notificação 6"
+                android:text="@string/Notificacao6"
                 android:textColor="#FFFFFF"
-                android:textSize="10sp" />
+                android:textSize="12sp" />
         </LinearLayout>
 
     </HorizontalScrollView>
