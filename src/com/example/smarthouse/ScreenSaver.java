@@ -6,10 +6,14 @@ import android.view.Menu;
 
 public class ScreenSaver extends Activity {
 
+	TextClock _textClock;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		_textClock = new TextClock(this);
 	}
 
 	@Override
@@ -18,7 +22,6 @@ public class ScreenSaver extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-	//lalal
 	
 	public void test(){}
 
