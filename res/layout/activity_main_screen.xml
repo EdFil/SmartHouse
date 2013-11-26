@@ -9,13 +9,15 @@
         android:id="@+id/horizontalScrollView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" >
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/scrollView2" >
 
         <TableLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent" >
+            android:layout_height="wrap_content" 
+            android:layout_gravity="center_vertical|center_horizontal">
 
             <TableRow
                 android:id="@+id/tableRow1"
@@ -24,31 +26,12 @@
 
                 <Button
                     android:id="@+id/backTest"
-                    android:layout_width="130dp"
-                    android:layout_height="80dp"
-                    android:layout_marginLeft="26dp"
                     android:text="@string/BACK_TEST" />
 
                 <Button
                     android:id="@+id/Cozinha"
-                    android:layout_width="130dp"
-                    android:layout_height="80dp"
-                    android:layout_marginLeft="26dp"
                     android:text="@string/Cozinha" />
-
-                <Button
-                    android:id="@+id/Button05"
-                    android:layout_width="130dp"
-                    android:layout_height="80dp"
-                    android:layout_marginLeft="26dp"
-                    android:text="@string/Sala" />
-
-                <Button
-                    android:id="@+id/Button04"
-                    android:layout_width="130dp"
-                    android:layout_height="80dp"
-                    android:layout_marginLeft="26dp"
-                    android:text="@string/Quarto" />
+                
             </TableRow>
 
             <TableRow
@@ -58,51 +41,59 @@
 
                 <Button
                     android:id="@+id/Button03"
-                    android:layout_width="130dp"
-                    android:layout_height="80dp"
-                    android:layout_marginLeft="26dp"
                     android:text="@string/Escritorio" />
 
                 <Button
                     android:id="@+id/Button02"
-                    android:layout_width="130dp"
-                    android:layout_height="80dp"
-                    android:layout_marginLeft="26dp"
                     android:text="@string/SalaJ" />
 
-                <Button
-                    android:id="@+id/Button01"
-                    android:layout_width="130dp"
-                    android:layout_height="80dp"
-                    android:layout_marginLeft="26dp"
-                    android:text="@string/Historico" />
+                
 
+                
+
+            </TableRow>
+            <TableRow
+                android:id="@+id/tableRow3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/Button04"
+                    android:text="@string/Quarto" />
+                
                 <Button
                     android:id="@+id/Sala"
-                    android:layout_width="130dp"
-                    android:layout_height="80dp"
-                    android:layout_marginLeft="26dp"
                     android:text="@string/Hall" />
-
+            </TableRow>  
+            
+            <TableRow
+                android:id="@+id/tableRow4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+            
+            	<Button
+                    android:id="@+id/Button05"
+                    android:text="@string/Sala" />
+            	
+            	<Button
+                    android:id="@+id/Button01"
+                    android:text="@string/Historico" />
             </TableRow>
         </TableLayout>
 
     </HorizontalScrollView>
 
-    <HorizontalScrollView
-        android:id="@+id/horizontalScrollView2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/horizontalScrollView1" >
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true">
 
         <LinearLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="#00000E"
-            android:orientation="horizontal" >
+            android:orientation="vertical" >
 
             <Button
                 android:id="@+id/Not1"
@@ -165,6 +156,6 @@
                 android:textSize="12sp" />
         </LinearLayout>
 
-    </HorizontalScrollView>
+    </ScrollView>
 
 </RelativeLayout>
