@@ -1,5 +1,6 @@
 package com.example.smarthouse;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
@@ -8,15 +9,41 @@ import android.widget.Button;
 
 public class MainScreen extends FragmentActivity {
 
+	private TextClock _textClock;
+	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main_screen);
-        final Button button = (Button) findViewById(R.id.backTest);
+        _textClock = new TextClock(this);
+		Button button;
+        button = (Button) findViewById(R.id.backTest);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	finish();
             }
         });
+        button = (Button) findViewById(R.id.historico);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+			   //Intent i = new Intent(getApplicationContext(), HistoryActivity.class);
+			   //startActivity(i);
+            }
+        });
+        button = (Button) findViewById(R.id.Cozinha);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+			   //Intent i = new Intent(getApplicationContext(), CozinhaActivity.class);
+			   //startActivity(i);
+            }
+        });
+        button = (Button) findViewById(R.id.Sala);
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+			   Intent i = new Intent(getApplicationContext(), SalaActivity.class);
+			   startActivity(i);
+            }
+        });
+
 	}
 	
 	@Override
@@ -30,5 +57,4 @@ public class MainScreen extends FragmentActivity {
         notfDialog dialog = new notfDialog();
         dialog.show(getSupportFragmentManager(), "notfDialog");
 	}
-	
 }

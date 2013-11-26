@@ -6,94 +6,17 @@
     android:orientation="vertical" >
 
     <HorizontalScrollView
-        android:id="@+id/horizontalScrollView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true"
-        android:layout_toLeftOf="@+id/scrollView2" >
-
-        <TableLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" 
-            android:layout_gravity="center_vertical|center_horizontal">
-
-            <TableRow
-                android:id="@+id/tableRow1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <Button
-                    android:id="@+id/backTest"
-                    android:text="@string/BACK_TEST" />
-
-                <Button
-                    android:id="@+id/Cozinha"
-                    android:text="@string/Cozinha" />
-                
-            </TableRow>
-
-            <TableRow
-                android:id="@+id/tableRow2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <Button
-                    android:id="@+id/Button03"
-                    android:text="@string/Escritorio" />
-
-                <Button
-                    android:id="@+id/Button02"
-                    android:text="@string/SalaJ" />
-
-                
-
-                
-
-            </TableRow>
-            <TableRow
-                android:id="@+id/tableRow3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-
-                <Button
-                    android:id="@+id/Button04"
-                    android:text="@string/Quarto" />
-                
-                <Button
-                    android:id="@+id/Sala"
-                    android:text="@string/Hall" />
-            </TableRow>  
-            
-            <TableRow
-                android:id="@+id/tableRow4"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" >
-            
-            	<Button
-                    android:id="@+id/Button05"
-                    android:text="@string/Sala" />
-            	
-            	<Button
-                    android:id="@+id/Button01"
-                    android:text="@string/Historico" />
-            </TableRow>
-        </TableLayout>
-
-    </HorizontalScrollView>
-
-    <ScrollView
         android:id="@+id/scrollView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentRight="true">
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true" >
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="#00000E"
-            android:orientation="vertical" >
+            android:orientation="horizontal" >
 
             <Button
                 android:id="@+id/Not1"
@@ -155,7 +78,127 @@
                 android:textColor="#FFFFFF"
                 android:textSize="12sp" />
         </LinearLayout>
+    </HorizontalScrollView>
 
-    </ScrollView>
+    <TableRow
+        android:id="@+id/TableRow01"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+        <DigitalClock
+            android:id="@+id/digitalClock1"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/DigitalClock" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="49dp" />
+ 
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:background="#00001F"
+            android:gravity="center"
+            android:text="@string/row1"
+            android:textColor="#FFFFFF" />
+
+        <Button
+            android:id="@+id/historico"
+            android:layout_width="wrap_content"
+            android:layout_height="42dp"
+            android:text="@string/Historico" />
+
+    </TableRow>
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:orientation="horizontal"
+        android:layout_below="@+id/TableRow01" >
+    </LinearLayout>
+
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1" >
+
+        <TableLayout
+            android:layout_width="wrap_content"
+            android:layout_height="228dp" >
+
+            <TableRow
+                android:id="@+id/tableRow1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/Button03"
+                    android:layout_width="140dp"
+                    android:layout_height="120dp"
+                    android:text="@string/Escritorio" />
+
+                <Button
+                    android:id="@+id/Button02"
+                    android:layout_width="140dp"
+                    android:layout_height="120dp"
+                    android:text="@string/SalaJ" />
+
+                <Button
+                    android:id="@+id/backTest"
+                    android:layout_width="140dp"
+                    android:layout_height="120dp"
+                    android:text="@string/BACK_TEST" />
+
+                <Button
+                    android:id="@+id/Cozinha"
+                    android:layout_width="140dp"
+                    android:layout_height="120dp"
+                    android:text="@string/Cozinha" />
+            </TableRow>
+
+            <TableRow
+                android:id="@+id/tableRow2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" >
+
+                <Button
+                    android:id="@+id/Sala"
+                    android:layout_width="140dp"
+                    android:layout_height="120dp"
+                    android:text="@string/Sala" />
+
+                <Button
+                    android:id="@+id/Button01"
+                    android:layout_width="140dp"
+                    android:layout_height="120dp"
+                    android:text="@string/Historico" />
+
+                <Button
+                    android:id="@+id/Button04"
+                    android:layout_width="140dp"
+                    android:layout_height="120dp"
+                    android:text="@string/Quarto" />
+
+                <Button
+                    android:id="@+id/Button05"
+                    android:layout_width="140dp"
+                    android:layout_height="120dp"
+                    android:text="@string/Hall" />
+            </TableRow>
+        </TableLayout>
+
+    </HorizontalScrollView>
 
 </RelativeLayout>

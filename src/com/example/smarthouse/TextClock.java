@@ -45,11 +45,11 @@ public class TextClock implements Runnable {
 	@Override
 	public void run() {
 		while (runner != null) {
+		      mHandler.post(updater);
 		      try {
 		    	  Thread.sleep(1000);
 		    	  Log.i("Tick", "Tock");
 		      } catch (InterruptedException e) { };
-		      mHandler.post(updater);
 		 }
 	}
 

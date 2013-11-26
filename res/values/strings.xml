@@ -8,7 +8,6 @@
     <string name="Consumo">placeholderVal</string>
     <string name="UnlockProgress">placeholderVal</string>
     <string name="notfText">NOTIFICAÇÂO</string>
-   
     <string name="DigitalClock">DigitalClock</string>
     <string name="Notificacao1">Notificação1</string>
     <string name="Notificacao2">Notificação2</string>
@@ -25,7 +24,12 @@
     <string name="Historico">Historico</string>
     <string name="Hall">Hall de entrada</string>
     <string name="OK">OK</string>
-    <string name="row1">row1</string>
+    <string name="row1"></string>
     <string name="row2">row2</string>
+    <string name="title_activity_television">TelevisionActivity</string>
+    <string name="Reproduzir">Reproduzir o filme na televisão</string>
+    <string name="AdicionarFav">Adicionar filme aos favoritos</string>
+    <string name="Cancelar">Cancelar</string>
+    <string name="Opcoes">Opcoes</string>
     
 </resources>
