@@ -25,5 +25,7 @@
     <string name="Historico">Historico</string>
     <string name="Hall">Hall de entrada</string>
     <string name="OK">OK</string>
+    <string name="row1">row1</string>
+    <string name="row2">row2</string>
     
 </resources>
