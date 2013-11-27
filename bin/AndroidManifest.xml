@@ -62,11 +62,13 @@
         </activity>
         <activity
             android:name="com.example.smarthouse.divisions.DivisionActivity"
-            android:label="@string/title_activity_division" >
+            android:label="@string/title_activity_division" 
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name="com.example.smarthouse.history.HistoryActivity"
-            android:label="@string/title_activity_history" >
+            android:label="@string/title_activity_history" 
+            android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

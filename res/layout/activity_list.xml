@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SalaActivity" >
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tableRow1"
+        android:background="#f4f4f4"
+        android:orientation="vertical" >
+
+        <ExpandableListView
+            android:id="@+id/lvExp"
+            android:layout_width="266dp"
+            android:layout_height="match_parent"
+            android:cacheColorHint="@android:color/transparent" />
+    </LinearLayout>
+
+    <TableRow
+        android:id="@+id/tableRow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true" >
+
+        <DigitalClock
+            android:id="@+id/digitalClock1"
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/DigitalClock" />
+
+        <TextView
+            android:id="@+id/date"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="49dp" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_weight="1"
+            android:background="#00001F"
+            android:gravity="center"
+            android:text="@string/row1"
+            android:textColor="#FFFFFF" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="37dp"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="1"
+            android:background="#00000F"
+            android:gravity="center"
+            android:text="@string/row2"
+            android:textColor="#FFFFFF" />
+    </TableRow>
+
+    <fragment
+        android:id="@+id/details"
+        android:name="com.example.smarthouse.divisions.detailsFragment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/linearLayout1"
+        android:layout_toRightOf="@+id/linearLayout1"
+        tools:layout="@layout/activity_frag_details" />
+
+</RelativeLayout>

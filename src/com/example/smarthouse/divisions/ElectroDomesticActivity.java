@@ -3,22 +3,21 @@ package com.example.smarthouse.divisions;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Random;
 
 import com.example.smarthouse.R;
 import com.example.smarthouse.mainactivity.ExpandableListAdapter;
 import com.example.smarthouse.mainactivity.TextClock;
-import com.example.smarthouse.popupsalerts.electroPopup;
 import com.example.smarthouse.popupsalerts.moviePopup;
 
 import android.os.Bundle;
-import android.app.Activity;
 import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
-import android.view.Menu;
 import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
+import android.widget.TextView;
 
 public class ElectroDomesticActivity extends FragmentActivity {
 
@@ -33,11 +32,15 @@ public class ElectroDomesticActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_television);
+
  
 		Intent i = getIntent();
 		division = (i.getExtras()).getString("Division");
-        
+        if(division.equals("Cozinha")) {
+        	setContentView(R.layout.activity_list);
+        } else if(division.equals("Sala")) {
+        	setContentView(R.layout.activity_movie_list);        	
+        }
         // get the listview
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
  
@@ -72,17 +75,16 @@ public class ElectroDomesticActivity extends FragmentActivity {
                     int groupPosition, int childPosition, long id) {
                 // TODO Auto-generated method stub
             	if(division.equals("Cozinha")) {
-	                electroPopup dialog = new electroPopup();
-	                dialog.show(getSupportFragmentManager(), "electroDisp");
-	                /*Toast.makeText(
-	                        getApplicationContext(),
-	                        listDataHeader.get(groupPosition)
-	                                + " : "
-	                                + listDataChild.get(
-	                                        listDataHeader.get(groupPosition)).get(
-	                                        childPosition), Toast.LENGTH_SHORT)
-	                        .show();*/
+            		View frag = getSupportFragmentManager().findFragmentById(R.id.details).getView();
+
+            		((TextView)frag.findViewById(R.id.AlertDescription)).setText("");
+            		((TextView)frag.findViewById(R.id.Product)).setText( listDataHeader.get(groupPosition) +""+ listDataChild.get( listDataHeader.get(groupPosition)).get(childPosition));
+            		Random rand = new Random();
+            		int  n = rand.nextInt(30) + 5;
+            		((TextView)frag.findViewById(R.id.Cons)).setText(n+"");
+
             	} else if(division.equals("Sala")) {
+
 	                moviePopup dialog = new moviePopup();
 	                dialog.show(getSupportFragmentManager(), "moviePopup");
 	                /*Toast.makeText(
@@ -108,10 +110,8 @@ public class ElectroDomesticActivity extends FragmentActivity {
         listDataChild = new HashMap<String, List<String>>();
  
         // Adding child data
-
  
         // Adding child data
-        String listName;
         if(division.equals("Cozinha")) {
             listDataHeader.add("");
             
@@ -126,6 +126,7 @@ public class ElectroDomesticActivity extends FragmentActivity {
             
             listDataChild.put(listDataHeader.get(0), ElectrodoMesticos); // Header, Child data
         } else if(division.equals("Sala")){
+        	
             listDataHeader.add("Favoritos");
             listDataHeader.add("Filmes");
             
@@ -145,7 +146,5 @@ public class ElectroDomesticActivity extends FragmentActivity {
             listDataChild.put(listDataHeader.get(0), Favoritos); // Header, Child data
             listDataChild.put(listDataHeader.get(1), Filmes);
         }
-
     }
-
 }
