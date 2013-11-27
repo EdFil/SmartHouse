@@ -1,6 +1,7 @@
 package com.example.smarthouse.mainactivity;
 
 import com.example.smarthouse.R;
+import com.example.smarthouse.divisions.DivisionActivity;
 import com.example.smarthouse.divisions.SalaActivity;
 import com.example.smarthouse.popupsalerts.notfDialog;
 
@@ -20,10 +21,11 @@ public class MainScreenActivity extends FragmentActivity {
 		setContentView(R.layout.activity_main_screen);
         _textClock = new TextClock(this);
 		Button button;
-        button = (Button) findViewById(R.id.backTest);
+        button = (Button) findViewById(R.id.quartocrianca);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	finish();
+ 			   //Intent i = new Intent(getApplicationContext(), HistoryActivity.class);
+ 			   //startActivity(i);
             }
         });
         button = (Button) findViewById(R.id.historico);
@@ -36,14 +38,16 @@ public class MainScreenActivity extends FragmentActivity {
         button = (Button) findViewById(R.id.Cozinha);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-			   //Intent i = new Intent(getApplicationContext(), CozinhaActivity.class);
-			   //startActivity(i);
+			   Intent i = new Intent(getApplicationContext(), DivisionActivity.class);
+			   i.putExtra("Division","Cozinha");
+			   startActivity(i);
             }
         });
         button = (Button) findViewById(R.id.Sala);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-			   Intent i = new Intent(getApplicationContext(), SalaActivity.class);
+			   Intent i = new Intent(getApplicationContext(), DivisionActivity.class);
+			   i.putExtra("Division","Sala");
 			   startActivity(i);
             }
         });

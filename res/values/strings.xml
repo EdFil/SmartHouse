@@ -33,5 +33,7 @@
     <string name="Opcoes">Opcoes</string>
     <string name="title_activity_movie">MovieActivity</string>
     <string name="title_activity_kitchen">KitchenActivity</string>
-
+    <string name="title_activity_division">DivisionActivity</string>
+	<string name="QuartoCrianca">Quarto de criança</string>
+	
 </resources>

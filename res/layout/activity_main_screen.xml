@@ -155,11 +155,11 @@
                     android:layout_height="120dp"
                     android:text="@string/SalaJ" />
 
-                <Button
-                    android:id="@+id/backTest"
+                <Button 
+                    android:id="@+id/quartocrianca"
                     android:layout_width="140dp"
                     android:layout_height="120dp"
-                    android:text="@string/BACK_TEST" />
+                    android:text="@string/QuartoCrianca" />
 
                 <Button
                     android:id="@+id/Cozinha"
