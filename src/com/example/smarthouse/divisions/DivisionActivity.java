@@ -31,7 +31,8 @@ public class DivisionActivity extends Activity {
 	        button.setText("Entradas/saidas");
 	        button.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
-				   Intent i = new Intent(getApplicationContext(), KitchenActivity.class);
+				   Intent i = new Intent(getApplicationContext(), ElectroDomesticActivity.class);
+				   i.putExtra("Division","Cozinha");
 				   startActivity(i);
 	            }
 	        });
@@ -39,7 +40,8 @@ public class DivisionActivity extends Activity {
 	        button.setText("Iluminação");
 	        button.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
-				   Intent i = new Intent(getApplicationContext(), KitchenActivity.class);
+				   Intent i = new Intent(getApplicationContext(), ElectroDomesticActivity.class);
+				   i.putExtra("Division","Cozinha");
 				   startActivity(i);
 	            }
 	        });
@@ -47,7 +49,8 @@ public class DivisionActivity extends Activity {
 	        button.setText("Electrodomesticos");
 	        button.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
-				   Intent i = new Intent(getApplicationContext(), KitchenActivity.class);
+				   Intent i = new Intent(getApplicationContext(), ElectroDomesticActivity.class);
+				   i.putExtra("Division","Cozinha");
 				   startActivity(i);
 	            }
 	        });
@@ -56,7 +59,8 @@ public class DivisionActivity extends Activity {
 	        button.setText("Filmes");
 	        button.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
-				   Intent i = new Intent(getApplicationContext(), SalaActivity.class);
+				   Intent i = new Intent(getApplicationContext(), ElectroDomesticActivity.class);
+				   i.putExtra("Division","Sala");
 				   startActivity(i);
 	            }
 	        });
@@ -64,7 +68,8 @@ public class DivisionActivity extends Activity {
 	        button.setText("Albuns");
 	        button.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
-				   Intent i = new Intent(getApplicationContext(), SalaActivity.class);
+				   Intent i = new Intent(getApplicationContext(), ElectroDomesticActivity.class);
+				   i.putExtra("Division","Sala");
 				   startActivity(i);
 	            }
 	        });
@@ -72,7 +77,8 @@ public class DivisionActivity extends Activity {
 	        button.setText("Iluminação");
 	        button.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
-				   Intent i = new Intent(getApplicationContext(), SalaActivity.class);
+				   Intent i = new Intent(getApplicationContext(), ElectroDomesticActivity.class);
+				   i.putExtra("Division","Sala");
 				   startActivity(i);
 	            }
 	        });

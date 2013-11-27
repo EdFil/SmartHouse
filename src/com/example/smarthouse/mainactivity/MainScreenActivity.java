@@ -2,7 +2,6 @@ package com.example.smarthouse.mainactivity;
 
 import com.example.smarthouse.R;
 import com.example.smarthouse.divisions.DivisionActivity;
-import com.example.smarthouse.divisions.SalaActivity;
 import com.example.smarthouse.popupsalerts.notfDialog;
 
 import android.content.Intent;

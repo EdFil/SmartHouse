@@ -54,7 +54,7 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name="com.example.smarthouse.divisions.KitchenActivity"
+            android:name="com.example.smarthouse.divisions.ElectroDomesticActivity"
             android:label="@string/title_activity_kitchen"
             android:parentActivityName="android.support.v4.app.FragmentActivity"
             android:screenOrientation="landscape"

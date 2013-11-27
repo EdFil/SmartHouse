@@ -1,91 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CozinhaElectrodomesticosActivity" >
+    tools:context=".SalaActivity" >
 
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="37dp"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:orientation="horizontal" >
+	<LinearLayout
+	    android:layout_width="fill_parent"
+	    android:layout_height="fill_parent"
+	    android:layout_below="@+id/tableRow1"
+	    android:background="#f4f4f4"
+	    android:orientation="vertical" >
+	 
+	            <ExpandableListView
+	                android:id="@+id/lvExp"
+	                android:layout_height="match_parent"
+	                android:layout_width="match_parent"
+	              	android:cacheColorHint="@android:color/transparent"/>  
+	 
+	</LinearLayout>
 
-        <DigitalClock
-            android:id="@+id/digitalClock1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:paddingLeft="10dp"
-            android:text="@string/DigitalClock" />
+	<TableRow
+	    android:id="@+id/tableRow1"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:layout_alignParentLeft="true"
+	    android:layout_alignParentTop="true" >
 
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="148dp"
-            android:text="Cozinha «- Electrodomesticos"
-            android:textAppearance="?android:attr/textAppearanceLarge" />
-    </LinearLayout>
+	    <DigitalClock
+	        android:id="@+id/digitalClock1"
+	        android:layout_width="0dp"
+	        android:layout_height="37dp"
+	        android:layout_weight="1"
+	        android:gravity="center"
+	        android:text="@string/DigitalClock" />
 
-    <ScrollView
-        android:id="@+id/scrollView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:layout_below="@+id/linearLayout1" >
+	    <TextView
+	        android:id="@+id/date"
+	        android:layout_width="wrap_content"
+	        android:layout_height="wrap_content"
+	        android:layout_marginLeft="49dp" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
+	    <TextView
+	        android:layout_width="0dp"
+	        android:layout_height="37dp"
+	        android:layout_weight="1"
+	        android:background="#00001F"
+	        android:gravity="center"
+	        android:text="@string/row1"
+	        android:textColor="#FFFFFF" />
 
-            <Button
-                android:id="@+id/torradeira"
-                android:layout_width="150dp"
-                android:layout_height="50dp"
-                android:text="Torradeira" />
-
-            <Button
-                android:id="@+id/torneira"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:onClick="checkTorneira"
-                android:text="Torneira" />
-
-            <Button
-                android:id="@+id/fogao"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="Fogao" />
-
-            <Button
-                android:id="@+id/televisao"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:text="TV" />
-
-            <Button
-                android:id="@+id/frigorifico"
-                android:layout_width="150dp"
-                android:layout_height="wrap_content"
-                android:onClick="checkFrigorifico"
-                android:text="Frigorifico" />
-        </LinearLayout>
-    </ScrollView>
-
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignTop="@+id/scrollView1"
-        android:layout_toLeftOf="@+id/scrollView1"
-        android:orientation="vertical" >
-
-    </LinearLayout>
-
+	    <TextView
+	        android:layout_width="0dp"
+	        android:layout_height="37dp"
+	        android:layout_gravity="center_vertical"
+	        android:layout_weight="1"
+	        android:background="#00000F"
+	        android:gravity="center"
+	        android:text="@string/row2"
+	        android:textColor="#FFFFFF" />
+	</TableRow>
+	
 </RelativeLayout>
