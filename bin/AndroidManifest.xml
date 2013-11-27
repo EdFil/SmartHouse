@@ -64,6 +64,15 @@
             android:name="com.example.smarthouse.divisions.DivisionActivity"
             android:label="@string/title_activity_division" >
         </activity>
+        <activity
+            android:name="com.example.smarthouse.history.HistoryActivity"
+            android:label="@string/title_activity_history" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

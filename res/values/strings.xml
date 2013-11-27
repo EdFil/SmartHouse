@@ -34,8 +34,9 @@
     <string name="title_activity_movie">MovieActivity</string>
     <string name="title_activity_kitchen">KitchenActivity</string>
     <string name="title_activity_division">DivisionActivity</string>
-	<string name="QuartoCrianca">Quarto de criança</string>
-	<string name="Ligar">Ligar</string>
+    <string name="QuartoCrianca">Quarto de criança</string>
+    <string name="Ligar">Ligar</string>
     <string name="Desligar">Desligar</string>
-	
+    <string name="title_activity_history">HistoryActivity</string>
+
 </resources>

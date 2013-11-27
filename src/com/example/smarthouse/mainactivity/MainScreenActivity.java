@@ -1,15 +1,16 @@
 package com.example.smarthouse.mainactivity;
 
-import com.example.smarthouse.R;
-import com.example.smarthouse.divisions.DivisionActivity;
-import com.example.smarthouse.popupsalerts.notfDialog;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
+
+import com.example.smarthouse.R;
+import com.example.smarthouse.divisions.DivisionActivity;
+import com.example.smarthouse.history.HistoryActivity;
+import com.example.smarthouse.popupsalerts.notfDialog;
 
 public class MainScreenActivity extends FragmentActivity {
 
@@ -30,8 +31,8 @@ public class MainScreenActivity extends FragmentActivity {
         button = (Button) findViewById(R.id.historico);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-			   //Intent i = new Intent(getApplicationContext(), HistoryActivity.class);
-			   //startActivity(i);
+			   Intent i = new Intent(getApplicationContext(), HistoryActivity.class);
+			   startActivity(i);
             }
         });
         button = (Button) findViewById(R.id.Cozinha);
