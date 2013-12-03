@@ -3,12 +3,13 @@ package com.example.smarthouse;
 import android.app.Application;
 
 public class DataVariables extends Application{
-   private int consumo;
+	
+	private History _history;
+	
+	//Getters
+	public History getHistory() { return _history; }
+
+	//Setters
+	public void setHistory(History history) { _history = history; }
    
-   public void setConsumo(int d){
-     this.consumo=d;
-   }
-   public int getConsumo(){
-     return this.consumo;
-   }
 }

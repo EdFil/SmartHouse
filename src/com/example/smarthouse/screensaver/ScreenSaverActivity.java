@@ -51,8 +51,8 @@ public class ScreenSaverActivity extends FragmentActivity {
 	private void initSeekBar() {
 		
 	   SeekBar seekBar = (SeekBar)findViewById(R.id.seekBar); 
-	   final TextView seekBarValue = (TextView)findViewById(R.id.UnlockProgress); 
-	   seekBarValue.setText(0+"%");
+	  // final TextView seekBarValue = (TextView)findViewById(R.id.UnlockProgress); 
+	   //seekBarValue.setText(0+"%");
 	   seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener(){ 
 		
 		   @Override 
@@ -63,7 +63,7 @@ public class ScreenSaverActivity extends FragmentActivity {
 				   startActivity(i);
 			   }
 			
-		    seekBarValue.setText(String.valueOf(progress)+"%"); 
+		    //seekBarValue.setText(String.valueOf(progress)+"%"); 
 		   } 
 		
 		   @Override 
