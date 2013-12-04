@@ -7,7 +7,7 @@ public class Device {
 	
 	Device(String name){
 		_name = name;
-		_history = new DeviceHistory(this);
+		_history = new DeviceHistory();
 	}
 	
 	//Getter

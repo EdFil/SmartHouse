@@ -29,6 +29,4 @@ public class History {
 	//Setters 
 	private void setConsumptionHistory(HashMap<Time, Float> consumptionHistory){ _consumptionHistory = consumptionHistory; }
 	private void setUsageHistory(HashMap<Time, Usage> usageHistory){ _usageHistory = usageHistory; }
-
-	
 }

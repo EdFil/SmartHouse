@@ -33,7 +33,7 @@ public class ScreenSaverActivity extends FragmentActivity {
 		super.onCreate(savedInstanceState); 
 		setContentView(R.layout.activity_screensaver);
 		_instance = (DataVariables)getApplication();
-		_instance.setConsumo(20);
+		//tance.setConsumo(20);
 		updateConsumo();
 		_handler.removeCallbacks(_updateTimeTask);
 		_handler.postDelayed(_updateTimeTask, 1000); 
@@ -80,7 +80,7 @@ public class ScreenSaverActivity extends FragmentActivity {
 
 	private void updateConsumo() {
 		TextView textViewToChange = (TextView) findViewById(R.id.Consumo);
-		textViewToChange.setText(""+_instance.getConsumo()+"Kw/h");
+		//textViewToChange.setText(""+_instance.getConsumo()+"Kw/h");
 	}
 	
 	public void onNotfClick(View v) {
