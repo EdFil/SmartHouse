@@ -5,7 +5,7 @@ public class Device {
 	private String _name;
 	private DeviceHistory _history;
 	
-	Device(String name){
+	public Device(String name){
 		_name = name;
 		_history = new DeviceHistory();
 	}

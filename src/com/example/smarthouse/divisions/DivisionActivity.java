@@ -1,87 +1,60 @@
 package com.example.smarthouse.divisions;
 
-import com.example.smarthouse.R;
-
-import android.os.Bundle;
 import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.support.v4.app.NavUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.support.v4.app.NavUtils;
-import android.annotation.TargetApi;
-import android.content.Intent;
-import android.os.Build;
+import android.widget.TableLayout;
+import android.widget.TableRow;
+
+import com.example.smarthouse.DataVariables;
+import com.example.smarthouse.Division;
+import com.example.smarthouse.R;
 
 public class DivisionActivity extends Activity {
 
-	private String division;
+	private static final int NUM_ELEMS_ROW = 3;
+	
+	private DataVariables _dataVariables;
+	private Division _division;
+	private TableLayout _tableLayout;
+
+	private int buttonCount = 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_division);
-		// Show the Up button in the action bar.
-		Intent i = getIntent();
-		division = (i.getExtras()).getString("Division");
-		Button button;
-		if(division.equals("Cozinha")) {
-			
-	        button = (Button) findViewById(R.id.button1);
-	        button.setText("Entradas/saidas");
-	        button.setOnClickListener(new View.OnClickListener() {
+		_dataVariables = (DataVariables)getApplication();
+		_division = _dataVariables._divisions.get((getIntent().getExtras()).getInt("Division"));
+		
+		_tableLayout = (TableLayout) findViewById(R.id.ButtonTable);
+		
+		_dataVariables = (DataVariables)getApplication();
+		
+		TableRow row = null;
+		int i = NUM_ELEMS_ROW;
+		
+		while(buttonCount < _division.getDevices().size()){
+			if(i >=  NUM_ELEMS_ROW){
+				row = new TableRow(this);
+				_tableLayout.addView(row);
+			}
+			Button button = new Button(this);
+			button.setText(_division.getDevices().get(buttonCount ).getName());
+			button.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
-				   Intent i = new Intent(getApplicationContext(), ElectroDomesticActivity.class);
-				   i.putExtra("Division","Cozinha");
+				   Intent i = new Intent(getApplicationContext(), DivisionActivity.class);
+				   i.putExtra("Device", buttonCount);
 				   startActivity(i);
 	            }
-	        });
-	        button = (Button) findViewById(R.id.button2);
-	        button.setText("Iluminação");
-	        button.setOnClickListener(new View.OnClickListener() {
-	            public void onClick(View v) {
-				   Intent i = new Intent(getApplicationContext(), ElectroDomesticActivity.class);
-				   i.putExtra("Division","Cozinha");
-				   startActivity(i);
-	            }
-	        });
-	        button = (Button) findViewById(R.id.button3);
-	        button.setText("Electrodomesticos");
-	        button.setOnClickListener(new View.OnClickListener() {
-	            public void onClick(View v) {
-				   Intent i = new Intent(getApplicationContext(), ElectroDomesticActivity.class);
-				   i.putExtra("Division","Cozinha");
-				   startActivity(i);
-	            }
-	        });
-		} else if (division.equals("Sala")) {
-	        button = (Button) findViewById(R.id.button1);
-	        button.setText("Filmes");
-	        button.setOnClickListener(new View.OnClickListener() {
-	            public void onClick(View v) {
-				   Intent i = new Intent(getApplicationContext(), ElectroDomesticActivity.class);
-				   i.putExtra("Division","Sala");
-				   startActivity(i);
-	            }
-	        });
-	        button = (Button) findViewById(R.id.button2);
-	        button.setText("Albuns");
-	        button.setOnClickListener(new View.OnClickListener() {
-	            public void onClick(View v) {
-				   Intent i = new Intent(getApplicationContext(), ElectroDomesticActivity.class);
-				   i.putExtra("Division","Sala");
-				   startActivity(i);
-	            }
-	        });
-	        button = (Button) findViewById(R.id.button3);
-	        button.setText("Iluminação");
-	        button.setOnClickListener(new View.OnClickListener() {
-	            public void onClick(View v) {
-				   Intent i = new Intent(getApplicationContext(), ElectroDomesticActivity.class);
-				   i.putExtra("Division","Sala");
-				   startActivity(i);
-	            }
-	        });
+	        } );
+			row.addView(button,100,50);
+			buttonCount++;
 		}
 	}
 	
