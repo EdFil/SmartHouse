@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,23 +39,25 @@ public class DivisionActivity extends Activity {
 		
 		TableRow row = null;
 		int i = NUM_ELEMS_ROW;
-		
+		Log.i("XXX", "OI");
 		while(buttonCount < _division.getDevices().size()){
 			if(i >=  NUM_ELEMS_ROW){
+				Log.i("XXX", "New row");
 				row = new TableRow(this);
 				_tableLayout.addView(row);
+				i = 0;
 			}
 			Button button = new Button(this);
 			button.setText(_division.getDevices().get(buttonCount ).getName());
 			button.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
-				   Intent i = new Intent(getApplicationContext(), DivisionActivity.class);
-				   i.putExtra("Device", buttonCount);
-				   startActivity(i);
+				   Intent intent = new Intent(getApplicationContext(), DivisionActivity.class);
+				   intent.putExtra("Device", buttonCount);
+				   startActivity(intent);
 	            }
 	        } );
-			row.addView(button,100,50);
-			buttonCount++;
+			row.addView(button,((int)(_dataVariables.WIDTH*0.2)),((int)(_dataVariables.HEIGHT*0.1)));
+			buttonCount++; i++;
 		}
 	}
 	

@@ -2,15 +2,17 @@ package com.example.smarthouse.mainactivity;
 
 import java.util.ArrayList;
 
-import android.app.Application;
 import android.content.Intent;
+import android.graphics.Point;
+import android.os.Build;
 import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.support.v4.app.FragmentActivity;
+import android.util.DisplayMetrics;
 import android.util.Log;
+import android.view.Display;
 import android.view.Menu;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
@@ -24,6 +26,7 @@ import com.example.smarthouse.popupsalerts.notfDialog;
 
 public class MainScreenActivity extends FragmentActivity{
 
+	private TextClock _textClock;
 	private final int NUM_ELEMS_ROW = 3;
 	private DataVariables _dataVariables;
 	private TableLayout _tableLayout;
@@ -31,13 +34,14 @@ public class MainScreenActivity extends FragmentActivity{
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main_screen);
+		setContentView(R.layout.activity_main_screen); 
 		
 		_tableLayout = (TableLayout) findViewById(R.id.ButtonTable);
-		
 		_dataVariables = (DataVariables)getApplication();
-		
+		if(!_dataVariables.isWindowInited())
+			_dataVariables.initWindowSize(this);
 		initDivisions();
+		_textClock = new TextClock(this);
 		
 		TableRow row = null;
 		int i = NUM_ELEMS_ROW;
@@ -46,20 +50,20 @@ public class MainScreenActivity extends FragmentActivity{
 			if(i >=  NUM_ELEMS_ROW){
 				row = new TableRow(this);
 				_tableLayout.addView(row);
+				i = 0;
 			}
 			Button button = new Button(this);
 			button.setText(_dataVariables._divisions.get(buttonCount).getName());
 			button.setId(buttonCount);
 			button.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
-				   Intent i = new Intent(getApplicationContext(), DivisionActivity.class);
-				   Log.i("XXX", "" + v.getId());
-				   i.putExtra("Division", v.getId());
-				   startActivity(i);
+				   Intent intent = new Intent(getApplicationContext(), DivisionActivity.class);
+				   intent.putExtra("Division", v.getId());
+				   startActivity(intent);
 	            }
 	        } );
-			row.addView(button,100,50);
-			buttonCount++;
+			row.addView(button,((int)(_dataVariables.WIDTH*0.2)),((int)(_dataVariables.HEIGHT*0.1)));
+			buttonCount++; i++;
 		}
 	}
 	

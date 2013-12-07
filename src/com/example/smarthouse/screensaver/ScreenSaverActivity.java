@@ -1,25 +1,26 @@
 package com.example.smarthouse.screensaver;
 
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
+import android.view.Menu;
+import android.view.View;
+import android.widget.DigitalClock;
+import android.widget.SeekBar;
+import android.widget.TextView;
+
 import com.example.smarthouse.DataVariables;
 import com.example.smarthouse.R;
 import com.example.smarthouse.mainactivity.MainScreenActivity;
 import com.example.smarthouse.mainactivity.TextClock;
 import com.example.smarthouse.popupsalerts.notfDialog;
 
-import android.os.Bundle;
-import android.os.Handler;
-import android.content.Intent;
-import android.support.v4.app.FragmentActivity;
-import android.view.Menu;
-import android.view.View;
-import android.widget.SeekBar;
-import android.widget.TextView;
-
 public class ScreenSaverActivity extends FragmentActivity {
 
 	private TextClock _textClock;
-	private DataVariables _instance;
+	private DataVariables _dataVariables;
 	private Handler _handler = new Handler();
 	private Runnable _updateTimeTask = new Runnable() {
 		public void run() {
@@ -32,7 +33,10 @@ public class ScreenSaverActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState); 
 		setContentView(R.layout.activity_screensaver);
-		_instance = (DataVariables)getApplication();
+		
+		_dataVariables = (DataVariables)getApplication();
+		if(!_dataVariables.isWindowInited())
+			_dataVariables.initWindowSize(this);
 		//tance.setConsumo(20);
 		updateConsumo();
 		_handler.removeCallbacks(_updateTimeTask);
@@ -43,7 +47,7 @@ public class ScreenSaverActivity extends FragmentActivity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
+		// Inflate the menu; this adds items to the action bar if it is present.s
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
@@ -77,7 +81,7 @@ public class ScreenSaverActivity extends FragmentActivity {
 		   } 
 	   });
 	}
-
+	
 	private void updateConsumo() {
 		TextView textViewToChange = (TextView) findViewById(R.id.Consumo);
 		//textViewToChange.setText(""+_instance.getConsumo()+"Kw/h");

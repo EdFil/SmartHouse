@@ -1,88 +1,95 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:gravity="top"
     android:orientation="vertical" >
 
-    <TableRow
-        android:id="@+id/tableRow1"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentTop="true" >
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:baselineAligned="false">
 
-        <DigitalClock
-            android:id="@+id/digitalClock1"
+        <FrameLayout
             android:layout_width="0dp"
-            android:layout_height="37dp"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:text="@string/DigitalClock" />
-   
-        <TextView
-            android:id="@+id/date"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="49dp"/>
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            tools:ignore="NestedWeights" >
 
-        <TextView
+            <TextView
+                android:id="@+id/hour"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <LinearLayout
             android:layout_width="0dp"
-            android:layout_height="37dp"
-            android:layout_weight="1"
-            android:background="#00001F"
-            android:gravity="center"
-            android:text="@string/row1"
-            android:textColor="#FFFFFF" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:layout_weight=".7" >
 
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="37dp"
-            android:layout_gravity="center_vertical"
-            android:layout_weight="1"
-            android:background="#00000F"
-            android:gravity="center"
-            android:text="@string/row2"
-            android:textColor="#FFFFFF" />
-    </TableRow>
+            <TextView
+                android:id="@+id/date1"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
 
-    <RelativeLayout
+            <TextView
+                android:id="@+id/date2"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/tableRow1"
-        android:gravity="center_vertical" >
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:baselineAligned="false"
+        android:orientation="horizontal" >
 
-        <TextView
-            android:id="@+id/Consumo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:ems="10"
-            android:gravity="center"
-            android:text="@string/Consumo"
-            android:textSize="60sp" />
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.8"
+            tools:ignore="NestedWeights" >
 
-        <TextView
-            android:id="@+id/UnlockProgress"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:ems="10"
-            android:gravity="center"
-            android:text="@string/UnlockProgress"
-            android:textSize="60sp" />
+            <TextView
+                android:id="@+id/Consumo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:text="@string/Consumo"
+                android:textSize="60sp" />
 
-		<com.example.smarthouse.mainactivity.VerticalSeekBar
-		    android:id="@+id/seekBar"
-		    android:layout_width="wrap_content"
-		    android:layout_height="200dp"
-		    android:layout_alignParentBottom="true"
-		    android:layout_alignParentRight="true"
-		    android:layout_marginBottom="20dp"
-		    android:layout_marginRight="23dp" />
+            <TextView
+                android:id="@+id/UnlockProgress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:gravity="center"
+                android:text="@string/UnlockProgress"
+                android:textSize="60sp" />
+        </FrameLayout>
 
-    </RelativeLayout>
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.2" >
 
-</RelativeLayout>
+            <com.example.smarthouse.mainactivity.VerticalSeekBar
+                android:id="@+id/seekBar"
+                android:layout_width="wrap_content"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center"/>
+        </FrameLayout>
+    </LinearLayout>
+
+</LinearLayout>
