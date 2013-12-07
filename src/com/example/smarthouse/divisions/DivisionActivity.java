@@ -15,11 +15,13 @@ import android.widget.TableRow;
 import com.example.smarthouse.DataVariables;
 import com.example.smarthouse.Division;
 import com.example.smarthouse.R;
+import com.example.smarthouse.mainactivity.TextClock;
 
 public class DivisionActivity extends Activity {
 
 	private static final int NUM_ELEMS_ROW = 3;
 	
+	private TextClock _textClock;
 	private DataVariables _dataVariables;
 	private Division _division;
 	private TableLayout _tableLayout;
@@ -31,8 +33,11 @@ public class DivisionActivity extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_division);
 		_dataVariables = (DataVariables)getApplication();
+		if(!_dataVariables.isWindowInited())
+			_dataVariables.initWindowSize(this);
 		_division = _dataVariables._divisions.get((getIntent().getExtras()).getInt("Division"));
 		
+		_textClock = new TextClock(this);
 		_tableLayout = (TableLayout) findViewById(R.id.ButtonTable);
 		
 		_dataVariables = (DataVariables)getApplication();
