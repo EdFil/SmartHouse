@@ -16,6 +16,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.example.smarthouse.DataVariables;
 import com.example.smarthouse.Device;
@@ -41,6 +42,9 @@ public class MainScreenActivity extends FragmentActivity{
 		if(!_dataVariables.isWindowInited())
 			_dataVariables.initWindowSize(this);
 		initDivisions();
+		TextView _menuName = (TextView)findViewById(R.id.menuName);
+		_menuName.setText("Home");
+		_menuName.setTextSize(((int)(_dataVariables.WIDTH*0.05)));
 		_textClock = new TextClock(this);
 		
 		TableRow row = null;

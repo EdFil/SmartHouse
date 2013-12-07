@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.example.smarthouse.DataVariables;
 import com.example.smarthouse.Division;
@@ -31,11 +32,14 @@ public class DivisionActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_division);
+		setContentView(R.layout.activity_main_screen);
 		_dataVariables = (DataVariables)getApplication();
 		if(!_dataVariables.isWindowInited())
 			_dataVariables.initWindowSize(this);
 		_division = _dataVariables._divisions.get((getIntent().getExtras()).getInt("Division"));
+		TextView _menuName = (TextView)findViewById(R.id.menuName);
+		_menuName.setText(_division.getName());
+		_menuName.setTextSize(((int)(_dataVariables.WIDTH*0.05)));
 		
 		_textClock = new TextClock(this);
 		_tableLayout = (TableLayout) findViewById(R.id.ButtonTable);
