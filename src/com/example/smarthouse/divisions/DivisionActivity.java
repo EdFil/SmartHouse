@@ -56,9 +56,15 @@ public class DivisionActivity extends Activity {
 			}
 			Button button = new Button(this);
 			button.setText(_division.getDevices().get(buttonCount ).getName());
+			button.setId(buttonCount);
 			button.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
+	            	Log.d("XXX", _division.getDevices().get(v.getId()).getName());
             		_dataVariables._currentDevice = _division.getDevices().get(v.getId());
+            		if(!_dataVariables._currentDevice.isOn())
+            			_dataVariables._currentDevice.turnOn(_dataVariables._currentUser);
+            		else
+            			_dataVariables._currentDevice.turnOff(_dataVariables._currentUser);
             		startActivity(new Intent(getApplicationContext(), DivisionActivity.class));
 	            }
 	        } );
