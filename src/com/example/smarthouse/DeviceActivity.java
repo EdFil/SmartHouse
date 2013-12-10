@@ -1,44 +1,48 @@
-package com.example.smarthouse.divisions;
+package com.example.smarthouse;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Random;
 
-import com.example.smarthouse.R;
 import com.example.smarthouse.mainactivity.ExpandableListAdapter;
 import com.example.smarthouse.mainactivity.TextClock;
-import com.example.smarthouse.popupsalerts.moviePopup;
 
 import android.os.Bundle;
-import android.content.Intent;
 import android.support.v4.app.FragmentActivity;
+import android.view.Menu;
 import android.view.View;
 import android.widget.ExpandableListView;
+import android.widget.TextView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
-import android.widget.TextView;
 
-public class ElectroDomesticActivity extends FragmentActivity {
+public class DeviceActivity extends FragmentActivity {
 
 	private TextClock _textClock;
-	private String division;
+	private DataVariables _dataVariables;
+	private Division _division;
 	
     ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
- 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
- 
-		Intent i = getIntent();
-        	setContentView(R.layout.activity_movie_list);        	
-        // get the listview
-        expListView = (ExpandableListView) findViewById(R.id.lvExp);
- 
+	
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_device);
+		_dataVariables = (DataVariables)getApplication();
+		if(!_dataVariables.isWindowInited())
+			_dataVariables.initWindowSize(this);
+		_division = _dataVariables._currentDivision;
+		TextView _deviceName = (TextView)findViewById(R.id.deviceName);
+		_deviceName.setText(_division.getName());
+		_deviceName.setTextSize(((int)(_dataVariables.WIDTH*0.05)));
+		
+		_textClock = new TextClock(this);
+		expListView = (ExpandableListView) findViewById(R.id.lvExp);
+		 
         // preparing list data
         prepareListData();
  
@@ -46,8 +50,6 @@ public class ElectroDomesticActivity extends FragmentActivity {
  
         // setting list adapter
         expListView.setAdapter(listAdapter);
-        
-		_textClock = new TextClock(this);
 		
         // Listview Group click listener
         expListView.setOnGroupClickListener(new OnGroupClickListener() {
@@ -69,34 +71,31 @@ public class ElectroDomesticActivity extends FragmentActivity {
             public boolean onChildClick(ExpandableListView parent, View v,
                     int groupPosition, int childPosition, long id) {
                 // TODO Auto-generated method stub
-            	if(division.equals("Cozinha")) {
             		View frag = getSupportFragmentManager().findFragmentById(R.id.details).getView();
 
+                    for(Device d : _dataVariables._currentDivision.getDevices()) {
+            	        if(d.getName().equals( listDataHeader.get(groupPosition) +""+ listDataChild.get( listDataHeader.get(groupPosition)).get(childPosition) ) )
+            	        	_dataVariables._currentDevice =  d;
+                    }
+            		
             		((TextView)frag.findViewById(R.id.AlertDescription)).setText("");
             		((TextView)frag.findViewById(R.id.Product)).setText( listDataHeader.get(groupPosition) +""+ listDataChild.get( listDataHeader.get(groupPosition)).get(childPosition));
-            		Random rand = new Random();
-            		int  n = rand.nextInt(30) + 5;
-            		((TextView)frag.findViewById(R.id.Cons)).setText(n+"");
+            		((TextView)frag.findViewById(R.id.Cons)).setText("Consumo Instantaneo: " +_dataVariables._currentDevice.getCurrentConsumption()+" ");
 
-            	} else if(division.equals("Sala")) {
-
-	                moviePopup dialog = new moviePopup();
-	                dialog.show(getSupportFragmentManager(), "moviePopup");
-	                /*Toast.makeText(
-	                        getApplicationContext(),
-	                        listDataHeader.get(groupPosition)
-	                                + " : "
-	                                + listDataChild.get(
-	                                        listDataHeader.get(groupPosition)).get(
-	                                        childPosition), Toast.LENGTH_SHORT)
-	                        .show();*/            		
-            	}
                 return false;
             }
 
-        });
-    }
- 
+        });		
+		
+	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// Inflate the menu; this adds items to the action bar if it is present.
+		getMenuInflater().inflate(R.menu.device, menu);
+		return true;
+	}
+	
     /*
      * Preparing the list data
      */
@@ -108,23 +107,15 @@ public class ElectroDomesticActivity extends FragmentActivity {
  
         // Adding child data
         	
-        listDataHeader.add("Favoritos");
-        listDataHeader.add("Filmes");
+        listDataHeader.add("");
         
-        List<String> Favoritos = new ArrayList<String>();
-        Favoritos.add("The Godfather");
-        Favoritos.add("The Dark Knight");
- 
-        List<String> Filmes = new ArrayList<String>();
-        Filmes.add("The Godfather");
-        Filmes.add("The Dark Knight");
-        Filmes.add("Balas e Bolinhos");
-        Filmes.add("James Bond 007: From Russia with Love");
-        Filmes.add("Mês de Agosto");
-        Filmes.add("Mês de Setembro");
-        Filmes.add("The Wolverine");
+        List<String> ElectrodoMesticos = new ArrayList<String>();
+        for(Device d : _dataVariables._currentDivision.getDevices()) {
+	        ElectrodoMesticos.add(d.getName());
+        }
+        
+        listDataChild.put(listDataHeader.get(0), ElectrodoMesticos); // Header, Child data
 
-        listDataChild.put(listDataHeader.get(0), Favoritos); // Header, Child data
-        listDataChild.put(listDataHeader.get(1), Filmes);
     }
+
 }
