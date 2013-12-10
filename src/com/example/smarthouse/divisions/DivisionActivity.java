@@ -36,7 +36,7 @@ public class DivisionActivity extends Activity {
 		_dataVariables = (DataVariables)getApplication();
 		if(!_dataVariables.isWindowInited())
 			_dataVariables.initWindowSize(this);
-		_division = _dataVariables._divisions.get((getIntent().getExtras()).getInt("Division"));
+		_division = _dataVariables._currentDivision;
 		TextView _menuName = (TextView)findViewById(R.id.menuName);
 		_menuName.setText(_division.getName());
 		_menuName.setTextSize(((int)(_dataVariables.WIDTH*0.05)));
@@ -48,10 +48,8 @@ public class DivisionActivity extends Activity {
 		
 		TableRow row = null;
 		int i = NUM_ELEMS_ROW;
-		Log.i("XXX", "OI");
 		while(buttonCount < _division.getDevices().size()){
 			if(i >=  NUM_ELEMS_ROW){
-				Log.i("XXX", "New row");
 				row = new TableRow(this);
 				_tableLayout.addView(row);
 				i = 0;
@@ -60,9 +58,8 @@ public class DivisionActivity extends Activity {
 			button.setText(_division.getDevices().get(buttonCount ).getName());
 			button.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
-				   Intent intent = new Intent(getApplicationContext(), DivisionActivity.class);
-				   intent.putExtra("Device", buttonCount);
-				   startActivity(intent);
+            		_dataVariables._currentDevice = _division.getDevices().get(v.getId());
+            		startActivity(new Intent(getApplicationContext(), DivisionActivity.class));
 	            }
 	        } );
 			row.addView(button,((int)(_dataVariables.WIDTH*0.2)),((int)(_dataVariables.HEIGHT*0.1)));

@@ -7,7 +7,7 @@ public class TimedUsage extends Usage {
 	private boolean _running;
 	private long _time;
 
-	TimedUsage(User user, Device device) {
+	public TimedUsage(User user, Device device) {
 		super(user, device);
 		setRunning(true);
 		setTime(SystemClock.elapsedRealtime());

@@ -15,6 +15,11 @@ public class DataVariables extends Application{
 	public int WIDTH = 0;
 	public int HEIGHT = 0;
 
+	public User _currentUser;
+	public Division _currentDivision;
+	public Device _currentDevice;
+	
+	public ArrayList<User> _users;
 	public History _history;
 	public ArrayList<Division> _divisions;	
 	
