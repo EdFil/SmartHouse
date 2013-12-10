@@ -77,11 +77,13 @@
         </activity>
         <activity
             android:name="com.example.smarthouse.DeviceActivity"
-            android:label="@string/title_activity_device" >
+            android:label="@string/title_activity_device" 
+            android:screenOrientation="landscape">
         </activity>
         <activity
             android:name="com.example.smarthouse.LightActivity"
-            android:label="@string/title_activity_light" >
+            android:label="@string/title_activity_light"
+            android:screenOrientation="landscape" >
         </activity>
     </application>
 

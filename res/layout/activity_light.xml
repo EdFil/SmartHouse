@@ -1,16 +1,161 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
+    android:orientation="vertical"
     tools:context=".LightActivity" >
+    
+    
+	<LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:baselineAligned="false" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        <FrameLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.3"
+            tools:ignore="NestedWeights" >
 
-</RelativeLayout>
+            <TextView
+                android:id="@+id/hour"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:id="@+id/LinearLayout2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".7"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/menuName"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity = "center"
+                android:text="DIVISION"
+                tools:ignore="HardcodedText" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+    
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="0dp"
+	    android:layout_weight="0.8"
+	    android:baselineAligned="false"
+	    android:orientation="horizontal" >
+
+		<TableLayout
+		    android:layout_width="0dp"
+		    android:layout_height="match_parent"
+		    android:layout_weight="0.50" 
+		    android:background="@drawable/sala2">
+   		
+		    <TableRow
+	           android:id="@+id/tableRow3"
+	           android:layout_width="wrap_content"
+	           android:layout_height="0dp" 
+			   android:gravity="center"
+        	   android:layout_weight="0.50">
+	  			 <TextView
+				    android:id="@+id/blank2"
+				    android:layout_width="0dp"
+        	   		android:layout_weight="0.15"
+				    android:layout_height="match_parent"/>
+	  			 
+				<TextView
+				    android:id="@+id/expositor"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:background="@drawable/lightoff"
+				    android:onClick = "onClick" />
+				
+				<TextView
+				    android:id="@+id/blank1"
+				    android:layout_width="0dp"
+        	   		android:layout_weight="0.77"
+				    android:layout_height="match_parent"/>
+		
+			</TableRow>
+		   <TableRow
+	           android:id="@+id/tableRow4"
+	           android:layout_width="wrap_content"
+	           android:layout_height="0dp" 
+	       	   android:layout_weight="0.50"
+			   android:gravity="center"> 
+	       	   
+		       
+	  			 <TextView
+				    android:id="@+id/blank3"
+				    android:layout_width="0dp"
+        	   		android:layout_weight="0.15"
+				    android:layout_height="match_parent"/>
+				<TextView
+				    android:id="@+id/exaustor"
+				    android:layout_width="wrap_content"
+			 	   android:layout_height="wrap_content"
+				    android:background="@drawable/lightoff"/>
+				
+	  			 <TextView
+				    android:id="@+id/blank4"
+				    android:layout_width="0dp"
+        	   		android:layout_weight="0.15"
+				    android:layout_height="match_parent"/>
+				<TextView
+				    android:id="@+id/tecto"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:background="@drawable/lightoff"/>
+	
+	  			 <TextView
+				    android:id="@+id/blank5"
+				    android:layout_width="0dp"
+        	   		android:layout_weight="0.15"
+				    android:layout_height="match_parent"/>
+				<TextView
+				    android:id="@+id/bancada"
+				    android:layout_width="wrap_content"
+				    android:layout_height="wrap_content"
+				    android:background="@drawable/lightoff"/>
+				
+	  			 <TextView
+				    android:id="@+id/blank6"
+				    android:layout_width="0dp"
+        	   		android:layout_weight="0.15"
+				    android:layout_height="match_parent"/>
+			</TableRow>
+		</TableLayout>
+
+	   <TableLayout 
+	        android:id="@+id/ButtonTable" 
+	        android:layout_width="0dp"
+	        android:layout_height="match_parent"
+        	android:layout_weight="0.50">
+
+	       <TableRow
+	           android:id="@+id/tableRow1"
+	           android:layout_width="wrap_content"
+	           android:layout_height="0dp" 
+        	   android:layout_weight="0.50">
+
+	       </TableRow>
+
+	       <TableRow
+	           android:id="@+id/tableRow2"
+	           android:layout_width="wrap_content"
+	           android:layout_height="0dp" 
+        	   android:layout_weight="0.50">
+
+	       </TableRow>
+	      
+		</TableLayout>
+
+	</LinearLayout>
+
+</LinearLayout>
