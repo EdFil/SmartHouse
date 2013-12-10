@@ -22,7 +22,7 @@ public class Division{
 		_devices.add(device);
 	}
 	
-	/** Removes a new Device to the devision
+	/** Removes a new Device to the division
 	 * 
 	 * @param device the device to be removed
 	 */
@@ -34,6 +34,14 @@ public class Division{
 	public String getName() { return _name;	}
 	public DivisionHistory getHistory() { return _history; }
 	public ArrayList<Device> getDevices() { return _devices; }
+	public Device getDevice(String name){
+		for(Device d : _devices){
+			if(d.getName().equals(name)){
+				return d;
+			}
+		}
+		return null;
+	}
 
 	
 	//Setters

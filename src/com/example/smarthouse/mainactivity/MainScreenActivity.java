@@ -3,23 +3,20 @@ package com.example.smarthouse.mainactivity;
 import java.util.ArrayList;
 
 import android.content.Intent;
-import android.graphics.Point;
-import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.DisplayMetrics;
-import android.util.Log;
-import android.view.Display;
 import android.view.Menu;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.HorizontalScrollView;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 
 import com.example.smarthouse.DataVariables;
 import com.example.smarthouse.Device;
 import com.example.smarthouse.Division;
+import com.example.smarthouse.Notification;
 import com.example.smarthouse.R;
 import com.example.smarthouse.divisions.DivisionActivity;
 import com.example.smarthouse.popupsalerts.notfDialog;
@@ -30,6 +27,7 @@ public class MainScreenActivity extends FragmentActivity{
 	private final int NUM_ELEMS_ROW = 3;
 	private DataVariables _dataVariables;
 	private TableLayout _tableLayout;
+	private HorizontalScrollView _hscrollview;
 	private int buttonCount = 0;
 	
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,6 +35,7 @@ public class MainScreenActivity extends FragmentActivity{
 		setContentView(R.layout.activity_main_screen); 
 		
 		_tableLayout = (TableLayout) findViewById(R.id.ButtonTable);
+		_hscrollview = (HorizontalScrollView) findViewById(R.id.NotificationView);
 		_dataVariables = (DataVariables)getApplication();
 		if(!_dataVariables.isWindowInited())
 			_dataVariables.initWindowSize(this);
@@ -62,8 +61,33 @@ public class MainScreenActivity extends FragmentActivity{
 				   startActivity(intent);
 	            }
 	        } );
-			row.addView(button,((int)(_dataVariables.WIDTH*0.2)),((int)(_dataVariables.HEIGHT*0.1)));
+			row.addView(button,((int)(_dataVariables.WIDTH*0.3)),((int)(_dataVariables.HEIGHT*0.2)));
 			buttonCount++; i++;
+		}
+		
+		buttonCount = 0;
+		LinearLayout llayout = new LinearLayout(this);
+		_hscrollview.addView(llayout);
+		
+		for(int temp = 0; temp < _dataVariables._divisions.size(); temp++){
+			Division d = _dataVariables._divisions.get(temp);
+			for(int j = 0; j < d.getDevices().size(); j++){
+				Device device = d.getDevices().get(j);
+				for(Notification notification : device.getNotifications()){
+					Button button = new Button(this);
+					button.setText(notification.getDescription());
+					button.setId(buttonCount);
+//					button.setOnClickListener(new View.OnClickListener() {
+//			            public void onClick(Vi1ew v) {
+//						   Intent intent = new Intent(getApplicationContext(), DivisionActivity.class);
+//						   intent.putExtra("Division", v.getId());
+//						   startActivity(intent);
+//			            }
+//			        } );
+					llayout.addView(button,((int)(_dataVariables.WIDTH*0.25)),((int)(_dataVariables.HEIGHT*0.24)));
+					buttonCount++;
+				}
+			}
 		}
 	}
 	
@@ -72,16 +96,29 @@ public class MainScreenActivity extends FragmentActivity{
 		Division cozinha = new Division("Cozinha");
 		cozinha.addDevice(new Device("Torradeira"));
 		cozinha.addDevice(new Device("Frigorifico"));
-		cozinha.addDevice(new Device("FogÃ£o"));
+		cozinha.addDevice(new Device("Fogao"));
 		cozinha.addDevice(new Device("Fritadeira"));
 		cozinha.addDevice(new Device("Esquentador"));
-		cozinha.addDevice(new Device("TelevisÃ£o"));
+		cozinha.addDevice(new Device("Televisao"));
 		cozinha.addDevice(new Device("Luzes"));
+		cozinha.getDevice("Torradeira").addNotification(new Notification("Torradeira a arder!"));
+		cozinha.getDevice("Fogao").addNotification(new Notification("Fogão a arder!"));
+		cozinha.getDevice("Fogao").addNotification(new Notification("Fogão cheio"));
+		cozinha.getDevice("Fogao").addNotification(new Notification("Fogão demasiado quente!"));
+		cozinha.getDevice("Esquentador").addNotification(new Notification("Esquentador desligado do gás!"));
+		cozinha.getDevice("Esquentador").addNotification(new Notification("Esquentador demasiado quente!"));
+		cozinha.getDevice("Televisao").addNotification(new Notification("Televisão da cozinha a arder!"));
+		cozinha.getDevice("Televisao").addNotification(new Notification("Televisão da cozinha demasiado quente!"));
 		Division sala = new Division("Sala");
-		sala.addDevice(new Device("TelevisÃ£o"));
+		sala.addDevice(new Device("Televisao"));
 		sala.addDevice(new Device("PS4"));
 		sala.addDevice(new Device("Lareira Eletrica"));
 		sala.addDevice(new Device("Luzes"));
+		sala.getDevice("Televisao").addNotification(new Notification("Televisão da sala a arder!"));
+		sala.getDevice("Televisao").addNotification(new Notification("Curto circuito na televisão da sala!"));
+		sala.getDevice("Televisao").addNotification(new Notification("Televisão da sala demasiado quente!"));
+		sala.getDevice("PS4").addNotification(new Notification("PS4 demasiado quente!"));
+		sala.getDevice("PS4").addNotification(new Notification("PS4 ligada à muito tempo!"));
 		_dataVariables._divisions.add(cozinha);
         _dataVariables._divisions.add(sala);
         _dataVariables._divisions.add(new Division("Quarto Edgar"));

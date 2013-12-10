@@ -49,4 +49,5 @@ public class DataVariables extends Application{
 			    HEIGHT = realSize.y;
 			} catch (Exception ignored) {  }
 	}
+	
 }

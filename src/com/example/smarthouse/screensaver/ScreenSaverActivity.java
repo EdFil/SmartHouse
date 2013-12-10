@@ -62,7 +62,7 @@ public class ScreenSaverActivity extends FragmentActivity {
 		   @Override 
 		   public void onProgressChanged(SeekBar seekBar, int progress, 
 		     boolean fromUser) { 
-			   if(progress == 100) {
+			   if(progress >= 80) {
 				   Intent i = new Intent(getApplicationContext(), MainScreenActivity.class);
 				   startActivity(i);
 			   }
