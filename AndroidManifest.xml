@@ -62,18 +62,26 @@
         </activity>
         <activity
             android:name="com.example.smarthouse.divisions.DivisionActivity"
-            android:label="@string/title_activity_division" 
+            android:label="@string/title_activity_division"
             android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name="com.example.smarthouse.history.HistoryActivity"
-            android:label="@string/title_activity_history" 
+            android:label="@string/title_activity_history"
             android:screenOrientation="landscape" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.example.smarthouse.DeviceActivity"
+            android:label="@string/title_activity_device" >
+        </activity>
+        <activity
+            android:name="com.example.smarthouse.LightActivity"
+            android:label="@string/title_activity_light" >
         </activity>
     </application>
 

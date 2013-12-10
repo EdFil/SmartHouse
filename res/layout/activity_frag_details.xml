@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
 
     <TableLayout
         android:layout_width="match_parent"
-        android:layout_height="fill_parent" >
+        android:layout_height="200dp" >
 
         <TableRow
             android:id="@+id/tableRow1"
@@ -45,25 +46,27 @@
                 android:layout_height="wrap_content"
                 android:text="@string/Alerta0" />
         </TableRow>
-
-        <TableRow
-            android:id="@+id/tableRow4"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:layout_weight="1" >
-
-            <Button
-                android:id="@+id/button1"
-                android:layout_width="wrap_content"
-                android:layout_height="fill_parent"
-                android:text="@string/Ligar" />
-
-            <Button
-                android:id="@+id/button2"
-                android:layout_width="120dp"
-                android:layout_height="fill_parent"
-                android:text="@string/Desligar" />
-        </TableRow>
     </TableLayout>
 
-</RelativeLayout>
+    <LinearLayout
+        android:id="@+id/buttonOptions"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal" >
+
+        <Button 
+            android:id="@+id/button1"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.4"
+            android:text="@string/Ligar" />
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="0dp"
+            android:layout_height="fill_parent"
+            android:layout_weight="0.4"
+            android:text="@string/Desligar" />
+    </LinearLayout>
+
+</LinearLayout>

@@ -14,8 +14,13 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.smarthouse.DataVariables;
+import com.example.smarthouse.Device;
+import com.example.smarthouse.DeviceActivity;
 import com.example.smarthouse.Division;
+import com.example.smarthouse.DivisionHistory;
+import com.example.smarthouse.LightActivity;
 import com.example.smarthouse.R;
+import com.example.smarthouse.mainactivity.MainScreenActivity;
 import com.example.smarthouse.mainactivity.TextClock;
 
 public class DivisionActivity extends Activity {
@@ -26,8 +31,6 @@ public class DivisionActivity extends Activity {
 	private DataVariables _dataVariables;
 	private Division _division;
 	private TableLayout _tableLayout;
-
-	private int buttonCount = 0;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -48,23 +51,48 @@ public class DivisionActivity extends Activity {
 		
 		TableRow row = null;
 		int i = NUM_ELEMS_ROW;
-		while(buttonCount < _division.getDevices().size()){
-			if(i >=  NUM_ELEMS_ROW){
-				row = new TableRow(this);
-				_tableLayout.addView(row);
-				i = 0;
-			}
-			Button button = new Button(this);
-			button.setText(_division.getDevices().get(buttonCount ).getName());
-			button.setOnClickListener(new View.OnClickListener() {
-	            public void onClick(View v) {
-            		_dataVariables._currentDevice = _division.getDevices().get(v.getId());
-            		startActivity(new Intent(getApplicationContext(), DivisionActivity.class));
-	            }
-	        } );
-			row.addView(button,((int)(_dataVariables.WIDTH*0.2)),((int)(_dataVariables.HEIGHT*0.1)));
-			buttonCount++; i++;
-		}
+		
+		row = new TableRow(this);
+		_tableLayout.addView(row);
+		i = 0;
+		
+		Button button;
+		
+		button = new Button(this);
+		button.setId(0);
+        button.setText("Iluminacao");
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	_dataVariables._currentDevice = _division.getDevices().get(v.getId());
+				Intent i = new Intent(getApplicationContext(), LightActivity.class);
+				startActivity(i);
+            }
+        });
+        row.addView(button,((int)(_dataVariables.WIDTH*0.35)),((int)(_dataVariables.HEIGHT*0.7*0.8)));
+        
+        button = new Button(this);
+        button.setId(1);
+        button.setText("Aparelhos");
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	_dataVariables._currentDevice = _division.getDevices().get(v.getId());
+				Intent i = new Intent(getApplicationContext(), DeviceActivity.class);
+				startActivity(i);
+            }
+        });
+        row.addView(button,((int)(_dataVariables.WIDTH*0.35)),((int)(_dataVariables.HEIGHT*0.7*0.8)));
+        
+        button = new Button(this);
+        button.setId(2);
+        button.setText("Consumo");
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+            	_dataVariables._currentDevice = _division.getDevices().get(v.getId());
+				Intent i = new Intent(getApplicationContext(), DivisionHistory.class);
+				startActivity(i);
+            }
+        });
+        row.addView(button,((int)(_dataVariables.WIDTH*0.35)),((int)(_dataVariables.HEIGHT*0.7*0.8)));
 	}
 	
 	@Override

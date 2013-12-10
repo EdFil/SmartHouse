@@ -38,9 +38,11 @@
     <string name="Ligar">Ligar</string>
     <string name="Desligar">Desligar</string>
     <string name="title_activity_history">HistoryActivity</string>
-	<string name="Alerta0"></string>
-	<string name="product"></string>
-	<string name="productconsumo"></string>
-	
-</resources>
+    <string name="Alerta0"></string>
+    <string name="product"></string>
+    <string name="productconsumo"></string>
+    <string name="title_activity_device">DeviceActivity</string>
+    <string name="device">deviceName</string>
+    <string name="title_activity_light">LightActivity</string>
 
+</resources>
