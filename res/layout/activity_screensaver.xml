@@ -54,29 +54,13 @@
         android:baselineAligned="false"
         android:orientation="horizontal" >
 
-        <FrameLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.8"
-            tools:ignore="NestedWeights" >
+      <FrameLayout
+          android:id="@+id/InfoArea"
+          android:layout_width="0dp"
+          android:layout_height="match_parent"
+          android:layout_weight="0.8"
+          tools:ignore="NestedWeights" >
 
-            <TextView
-                android:id="@+id/Consumo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="center"
-                android:text="@string/Consumo"
-                android:textSize="60sp" />
-
-            <TextView
-                android:id="@+id/UnlockProgress"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:gravity="center"
-                android:text="@string/UnlockProgress"
-                android:textSize="60sp" />
         </FrameLayout>
 
         <FrameLayout

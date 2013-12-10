@@ -4,7 +4,7 @@ public class User {
 
 	private String _name;
 
-	User(String name){
+	public User(String name){
 		_name = name;
 	}
 	

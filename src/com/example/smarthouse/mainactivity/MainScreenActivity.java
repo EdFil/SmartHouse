@@ -12,12 +12,15 @@ import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.example.smarthouse.DataVariables;
 import com.example.smarthouse.Device;
 import com.example.smarthouse.Division;
 import com.example.smarthouse.Notification;
 import com.example.smarthouse.R;
+import com.example.smarthouse.TimedDevice;
+import com.example.smarthouse.User;
 import com.example.smarthouse.divisions.DivisionActivity;
 import com.example.smarthouse.popupsalerts.notfDialog;
 
@@ -40,6 +43,10 @@ public class MainScreenActivity extends FragmentActivity{
 		if(!_dataVariables.isWindowInited())
 			_dataVariables.initWindowSize(this);
 		initDivisions();
+		initUsers();
+		TextView _menuName = (TextView)findViewById(R.id.menuName);
+		_menuName.setText("Home");
+		_menuName.setTextSize(((int)(_dataVariables.WIDTH*0.05)));
 		_textClock = new TextClock(this);
 		
 		TableRow row = null;
@@ -55,10 +62,9 @@ public class MainScreenActivity extends FragmentActivity{
 			button.setText(_dataVariables._divisions.get(buttonCount).getName());
 			button.setId(buttonCount);
 			button.setOnClickListener(new View.OnClickListener() {
-	            public void onClick(View v) {
-				   Intent intent = new Intent(getApplicationContext(), DivisionActivity.class);
-				   intent.putExtra("Division", v.getId());
-				   startActivity(intent);
+				public void onClick(View v) {
+					_dataVariables._currentDivision = _dataVariables._divisions.get(v.getId());
+					startActivity(new Intent(getApplicationContext(), DivisionActivity.class));
 	            }
 	        } );
 			row.addView(button,((int)(_dataVariables.WIDTH*0.3)),((int)(_dataVariables.HEIGHT*0.2)));
@@ -90,17 +96,25 @@ public class MainScreenActivity extends FragmentActivity{
 			}
 		}
 	}
+
+	private void initUsers(){
+		_dataVariables._users = new ArrayList<User>();
+		_dataVariables._users.add(new User("Edgar"));
+		_dataVariables._users.add(new User("Andre"));
+		_dataVariables._users.add(new User("Joao"));
+		_dataVariables._currentUser = _dataVariables._users.get(0);
+	}
 	
 	private void initDivisions() {
 		_dataVariables._divisions = new ArrayList<Division>();
 		Division cozinha = new Division("Cozinha");
-		cozinha.addDevice(new Device("Torradeira"));
-		cozinha.addDevice(new Device("Frigorifico"));
-		cozinha.addDevice(new Device("Fogao"));
-		cozinha.addDevice(new Device("Fritadeira"));
-		cozinha.addDevice(new Device("Esquentador"));
-		cozinha.addDevice(new Device("Televisao"));
-		cozinha.addDevice(new Device("Luzes"));
+		cozinha.addDevice(new TimedDevice("Torradeira"));
+		cozinha.addDevice(new TimedDevice("Frigorifico"));
+		cozinha.addDevice(new TimedDevice("Fogao"));
+		cozinha.addDevice(new TimedDevice("Fritadeira"));
+		cozinha.addDevice(new TimedDevice("Esquentador"));
+		cozinha.addDevice(new TimedDevice("Televisao"));
+		cozinha.addDevice(new TimedDevice("Luzes"));
 		cozinha.getDevice("Torradeira").addNotification(new Notification("Torradeira a arder!"));
 		cozinha.getDevice("Fogao").addNotification(new Notification("Fogão a arder!"));
 		cozinha.getDevice("Fogao").addNotification(new Notification("Fogão cheio"));
@@ -110,10 +124,10 @@ public class MainScreenActivity extends FragmentActivity{
 		cozinha.getDevice("Televisao").addNotification(new Notification("Televisão da cozinha a arder!"));
 		cozinha.getDevice("Televisao").addNotification(new Notification("Televisão da cozinha demasiado quente!"));
 		Division sala = new Division("Sala");
-		sala.addDevice(new Device("Televisao"));
-		sala.addDevice(new Device("PS4"));
-		sala.addDevice(new Device("Lareira Eletrica"));
-		sala.addDevice(new Device("Luzes"));
+		sala.addDevice(new TimedDevice("Televisao"));
+		sala.addDevice(new TimedDevice("PS4"));
+		sala.addDevice(new TimedDevice("Lareira Eletrica"));
+		sala.addDevice(new TimedDevice("Luzes"));
 		sala.getDevice("Televisao").addNotification(new Notification("Televisão da sala a arder!"));
 		sala.getDevice("Televisao").addNotification(new Notification("Curto circuito na televisão da sala!"));
 		sala.getDevice("Televisao").addNotification(new Notification("Televisão da sala demasiado quente!"));

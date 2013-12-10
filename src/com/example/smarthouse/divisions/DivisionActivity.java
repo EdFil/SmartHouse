@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
+import android.widget.TextView;
 
 import com.example.smarthouse.DataVariables;
 import com.example.smarthouse.Division;
@@ -31,11 +32,14 @@ public class DivisionActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_division);
+		setContentView(R.layout.activity_main_screen);
 		_dataVariables = (DataVariables)getApplication();
 		if(!_dataVariables.isWindowInited())
 			_dataVariables.initWindowSize(this);
-		_division = _dataVariables._divisions.get((getIntent().getExtras()).getInt("Division"));
+		_division = _dataVariables._currentDivision;
+		TextView _menuName = (TextView)findViewById(R.id.menuName);
+		_menuName.setText(_division.getName());
+		_menuName.setTextSize(((int)(_dataVariables.WIDTH*0.05)));
 		
 		_textClock = new TextClock(this);
 		_tableLayout = (TableLayout) findViewById(R.id.ButtonTable);
@@ -44,21 +48,24 @@ public class DivisionActivity extends Activity {
 		
 		TableRow row = null;
 		int i = NUM_ELEMS_ROW;
-		Log.i("XXX", "OI");
 		while(buttonCount < _division.getDevices().size()){
 			if(i >=  NUM_ELEMS_ROW){
-				Log.i("XXX", "New row");
 				row = new TableRow(this);
 				_tableLayout.addView(row);
 				i = 0;
 			}
 			Button button = new Button(this);
 			button.setText(_division.getDevices().get(buttonCount ).getName());
+			button.setId(buttonCount);
 			button.setOnClickListener(new View.OnClickListener() {
 	            public void onClick(View v) {
-				   Intent intent = new Intent(getApplicationContext(), DivisionActivity.class);
-				   intent.putExtra("Device", buttonCount);
-				   startActivity(intent);
+	            	Log.d("XXX", _division.getDevices().get(v.getId()).getName());
+            		_dataVariables._currentDevice = _division.getDevices().get(v.getId());
+            		if(!_dataVariables._currentDevice.isOn())
+            			_dataVariables._currentDevice.turnOn(_dataVariables._currentUser);
+            		else
+            			_dataVariables._currentDevice.turnOff(_dataVariables._currentUser);
+            		startActivity(new Intent(getApplicationContext(), DivisionActivity.class));
 	            }
 	        } );
 			row.addView(button,((int)(_dataVariables.WIDTH*0.2)),((int)(_dataVariables.HEIGHT*0.1)));
