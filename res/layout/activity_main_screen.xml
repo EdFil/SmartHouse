@@ -26,7 +26,7 @@
                 android:gravity="center" />
         </FrameLayout>
 
-        <LinearLayout
+       <LinearLayout
             android:id="@+id/LinearLayout2"
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -35,11 +35,22 @@
 
             <TextView
                 android:id="@+id/menuName"
-                android:layout_width="fill_parent"
+                android:layout_width="0dp"
                 android:layout_height="fill_parent"
+                android:layout_weight="0.3"
                 android:gravity = "center"
-                android:text="DIVISION"
+                android:text="Iluminação"
                 tools:ignore="HardcodedText" />
+
+
+                        
+           <Button
+                android:id="@+id/historyButton"
+                android:layout_width="0dp"
+                android:layout_height="fill_parent"
+                android:layout_weight="0.1"
+                android:text="Consumo"
+                android:textSize="10dp" />
 
         </LinearLayout>
 
