@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
+import android.widget.TableRow.LayoutParams;
 
 import com.example.smarthouse.DataVariables;
 import com.example.smarthouse.Device;
@@ -66,8 +67,7 @@ public class MainScreenActivity extends FragmentActivity{
 		}
 		
 		buttonCount = 0;
-		LinearLayout llayout = new LinearLayout(this);
-		_hscrollview.addView(llayout);
+		LinearLayout llayout = (LinearLayout) findViewById(R.id.llayout);
 		
 		for(int temp = 0; temp < _dataVariables._divisions.size(); temp++){
 			Division d = _dataVariables._divisions.get(temp);
@@ -84,7 +84,7 @@ public class MainScreenActivity extends FragmentActivity{
 //						   startActivity(intent);
 //			            }
 //			        } );
-					llayout.addView(button,((int)(_dataVariables.WIDTH*0.25)),((int)(_dataVariables.HEIGHT*0.24)));
+					llayout.addView(button,((int)(_dataVariables.WIDTH*0.25)),LayoutParams.MATCH_PARENT);
 					buttonCount++;
 				}
 			}
