@@ -55,14 +55,14 @@
         android:orientation="horizontal" >
 
         <Button 
-            android:id="@+id/button1"
+            android:id="@+id/ON"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="0.4"
             android:text="@string/Ligar" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/OFF"
             android:layout_width="0dp"
             android:layout_height="fill_parent"
             android:layout_weight="0.4"

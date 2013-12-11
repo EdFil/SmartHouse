@@ -1,5 +1,6 @@
 package com.example.smarthouse.mainactivity;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 
@@ -12,9 +13,13 @@ import android.view.ViewGroup;
 import android.widget.BaseExpandableListAdapter;
 import android.widget.TextView;
  
-public class ExpandableListAdapter extends BaseExpandableListAdapter {
+public class ExpandableListAdapter extends BaseExpandableListAdapter implements Serializable {
  
-    private Context _context;
+    /**
+	 * 
+	 */
+	private static final long serialVersionUID = -8942531149974455764L;
+	private Context _context;
     private List<String> _listDataHeader; // header titles
     // child data in format of header title, child title
     private HashMap<String, List<String>> _listDataChild;
@@ -24,6 +29,10 @@ public class ExpandableListAdapter extends BaseExpandableListAdapter {
         this._context = context;
         this._listDataHeader = listDataHeader;
         this._listDataChild = listChildData;
+    }
+    
+    public List<String> getList(String key) {
+    	return _listDataChild.get(key);
     }
  
     @Override

@@ -54,19 +54,10 @@
         
         <ExpandableListView
             android:id="@+id/lvExp"
-            android:layout_width="168dp"
+            android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:groupIndicator="@android:color/transparent"
             android:cacheColorHint="#000000"
             android:weightSum="1" />
-
-        <fragment
-            android:id="@+id/details"
-            android:name="com.example.smarthouse.divisions.detailsFragment"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="1"
-            tools:layout="@layout/activity_frag_details" />
         
     </LinearLayout>
 

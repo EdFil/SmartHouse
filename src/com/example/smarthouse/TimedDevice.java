@@ -17,8 +17,8 @@ public class TimedDevice extends Device {
 	
 	@Override
 	protected void endUsage(User user){
-		TimedUsage usage = (TimedUsage)super.getHistory().getUsageHistory().get(getCurrentUsage());
-		usage.finish();
+		//TimedUsage usage = (TimedUsage)super.getHistory().getUsageHistory().get(getCurrentUsage());
+		//((TimedUsage)getCurrentUsage()).finish();
 		super.endUsage(user);
 	}
 	
