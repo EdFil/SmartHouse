@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,13 +13,12 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.smarthouse.DataVariables;
-import com.example.smarthouse.Device;
 import com.example.smarthouse.DeviceActivity;
 import com.example.smarthouse.Division;
 import com.example.smarthouse.DivisionHistory;
 import com.example.smarthouse.LightActivity;
 import com.example.smarthouse.R;
-import com.example.smarthouse.mainactivity.MainScreenActivity;
+import com.example.smarthouse.history.HistoryActivity;
 import com.example.smarthouse.mainactivity.TextClock;
 
 public class DivisionActivity extends Activity {
@@ -87,7 +85,7 @@ public class DivisionActivity extends Activity {
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
             	_dataVariables._currentDevice = _division.getDevices().get(v.getId());
-				Intent i = new Intent(getApplicationContext(), DivisionHistory.class);
+				Intent i = new Intent(getApplicationContext(), HistoryActivity.class);
 				startActivity(i);
             }
         });

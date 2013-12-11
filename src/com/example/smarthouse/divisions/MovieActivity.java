@@ -1,12 +1,11 @@
 package com.example.smarthouse.divisions;
 
-import com.example.smarthouse.R;
-
-
-import android.os.Bundle;
 import android.app.Activity;
+import android.os.Bundle;
 import android.view.Menu;
 import android.widget.VideoView;
+
+import com.example.smarthouse.R;
 
 public class MovieActivity extends Activity {
 

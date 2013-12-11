@@ -3,10 +3,6 @@ package com.example.smarthouse.popupsalerts;
 import java.util.HashMap;
 import java.util.List;
 
-import com.example.smarthouse.R;
-import com.example.smarthouse.divisions.MovieActivity;
-import com.example.smarthouse.mainactivity.ExpandableListAdapter;
-
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.Dialog;
@@ -14,7 +10,10 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
-import android.widget.ExpandableListView;
+
+import com.example.smarthouse.R;
+import com.example.smarthouse.divisions.MovieActivity;
+import com.example.smarthouse.mainactivity.ExpandableListAdapter;
 
 @SuppressLint("ValidFragment")
 public class moviePopup extends DialogFragment{

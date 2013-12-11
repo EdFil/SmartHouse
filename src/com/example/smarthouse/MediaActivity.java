@@ -6,12 +6,13 @@ import java.util.List;
 
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.view.View;
 import android.view.Menu;
+import android.view.View;
 import android.widget.ExpandableListView;
-import android.widget.TextView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
+import android.widget.TextView;
+
 import com.example.smarthouse.mainactivity.ExpandableListAdapter;
 import com.example.smarthouse.mainactivity.TextClock;
 import com.example.smarthouse.popupsalerts.moviePopup;
@@ -125,8 +126,8 @@ public class MediaActivity extends FragmentActivity {
         List<String> Filmes = new ArrayList<String>();
         Filmes.add("Balas e Bolinhos");
         Filmes.add("James Bond 007: From Russia with Love");
-        Filmes.add("Mês de Agosto");
-        Filmes.add("Mês de Setembro");
+        Filmes.add("Mï¿½s de Agosto");
+        Filmes.add("Mï¿½s de Setembro");
         Filmes.add("The Wolverine");
 
         listDataChild.put(listDataHeader.get(0), Favoritos); // Header, Child data

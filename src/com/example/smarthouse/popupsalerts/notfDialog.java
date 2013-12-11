@@ -1,12 +1,12 @@
 package com.example.smarthouse.popupsalerts;
 
-import com.example.smarthouse.R;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+
+import com.example.smarthouse.R;
 
 public class notfDialog extends DialogFragment{
 

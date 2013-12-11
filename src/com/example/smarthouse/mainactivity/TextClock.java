@@ -5,14 +5,12 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import android.app.Activity;
+import android.os.Handler;
+import android.widget.TextView;
+
 import com.example.smarthouse.DataVariables;
 import com.example.smarthouse.R;
-
-import android.app.Activity;
-import android.app.Application;
-import android.os.Handler;
-import android.util.Log;
-import android.widget.TextView;
 
 public class TextClock implements Runnable {
 

@@ -12,12 +12,9 @@ import android.widget.FrameLayout;
 import android.widget.SeekBar;
 
 import com.example.smarthouse.DataVariables;
-import com.example.smarthouse.Division;
 import com.example.smarthouse.InfoArea;
 import com.example.smarthouse.InstantConsumption;
 import com.example.smarthouse.R;
-import com.example.smarthouse.TimedDevice;
-import com.example.smarthouse.User;
 import com.example.smarthouse.mainactivity.MainScreenActivity;
 import com.example.smarthouse.mainactivity.TextClock;
 
@@ -46,43 +43,8 @@ public class ScreenSaverActivity extends FragmentActivity {
 		initSeekBar();
 		_infoArea = (FrameLayout)findViewById(R.id.InfoArea);
 		new TextClock(this);
-		initUsers();
-		initDivisions();
 		_currentInfo = new InstantConsumption(this);
 		_currentInfo.setFrameLayout(_infoArea);
-	}
-	
-	private void initUsers(){
-		_dataVariables._users = new ArrayList<User>();
-		_dataVariables._users.add(new User("Edgar"));
-		_dataVariables._users.add(new User("Andre"));
-		_dataVariables._users.add(new User("Joao"));
-		_dataVariables._currentUser = _dataVariables._users.get(0);
-	}
-	
-	private void initDivisions() {
-		_dataVariables._divisions = new ArrayList<Division>();
-		Division cozinha = new Division("Cozinha");
-		cozinha.addDevice(new TimedDevice("Torradeira"));
-		cozinha.addDevice(new TimedDevice("Frigorifico"));
-		cozinha.addDevice(new TimedDevice("Fogão"));
-		cozinha.addDevice(new TimedDevice("Fritadeira"));
-		cozinha.addDevice(new TimedDevice("Esquentador"));
-		cozinha.addDevice(new TimedDevice("Televisão"));
-		cozinha.addDevice(new TimedDevice("Luzes"));
-		Division sala = new Division("Sala");
-		sala.addDevice(new TimedDevice("Televisão"));
-		sala.addDevice(new TimedDevice("PS4"));
-		sala.addDevice(new TimedDevice("Televisão"));
-		sala.addDevice(new TimedDevice("PS4"));
-		sala.addDevice(new TimedDevice("Lareira Eletrica"));
-		sala.addDevice(new TimedDevice("Luzes"));
-		_dataVariables._divisions.add(cozinha);
-        _dataVariables._divisions.add(sala);
-        _dataVariables._divisions.add(new Division("Quarto Edgar"));
-        _dataVariables._divisions.add(new Division("Dispensa"));
-        _dataVariables._divisions.add(new Division("Quarto Joao"));
-        _dataVariables._divisions.add(new Division("Quarto Andre"));
 	}
 	
 	@Override

@@ -1,6 +1,7 @@
 package com.example.smarthouse;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import android.text.format.Time;
 
@@ -14,8 +15,14 @@ public class History {
 		setUsageHistory(new HashMap<Time, Usage>());
 	}
 
+	public void addConsumption(Time time, float consumption) {
+		_consumptionHistory.put(time, consumption);
+	}
+	
 	public void addConsumption(float consumption) {
-		_consumptionHistory.put(new Time(), consumption);
+		Time time = new Time();
+		time.setToNow();
+		_consumptionHistory.put(time, consumption);
 	}
 	
 	public void addUsage(Usage usage){
@@ -29,4 +36,13 @@ public class History {
 	//Setters 
 	private void setConsumptionHistory(HashMap<Time, Float> consumptionHistory){ _consumptionHistory = consumptionHistory; }
 	private void setUsageHistory(HashMap<Time, Usage> usageHistory){ _usageHistory = usageHistory; }
+
+	public float getAllConsumptionFromMonth(int month) {
+		float res = 0;
+		for (Map.Entry<Time, Float> entry : _consumptionHistory.entrySet()) {
+			if(entry.getKey().month == month)
+				res += entry.getValue();
+		}
+		return res;
+	}
 }

@@ -1,14 +1,12 @@
 package com.example.smarthouse.popupsalerts;
 
-import com.example.smarthouse.R;
-import com.example.smarthouse.divisions.MovieActivity;
-
 import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.DialogFragment;
+
+import com.example.smarthouse.R;
 
 public class electroPopup extends DialogFragment{
 

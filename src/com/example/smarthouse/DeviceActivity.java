@@ -3,11 +3,6 @@ package com.example.smarthouse;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Random;
-
-import com.example.smarthouse.divisions.DivisionActivity;
-import com.example.smarthouse.mainactivity.ExpandableListAdapter;
-import com.example.smarthouse.mainactivity.TextClock;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -16,11 +11,14 @@ import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ExpandableListView;
+import android.widget.ExpandableListView.OnChildClickListener;
+import android.widget.ExpandableListView.OnGroupClickListener;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 import android.widget.TextView;
-import android.widget.ExpandableListView.OnChildClickListener;
-import android.widget.ExpandableListView.OnGroupClickListener;
+
+import com.example.smarthouse.mainactivity.ExpandableListAdapter;
+import com.example.smarthouse.mainactivity.TextClock;
 
 public class DeviceActivity extends FragmentActivity {
 

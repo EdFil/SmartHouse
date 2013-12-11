@@ -1,329 +1,162 @@
-<LinearLayout xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/HistoryLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".HistoryActivity" xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <FrameLayout
-        android:id="@+id/TopBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <TextView
-            android:id="@+id/textView1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:text="History"
-            android:textAlignment="center"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            tools:ignore="HardcodedText" />
-
-    </FrameLayout>
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:gravity="top"
+    android:orientation="vertical" >
 
     <LinearLayout
-        android:id="@+id/CalendarLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
-
-        <LinearLayout
-            android:id="@+id/CalendarLeft"
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="0.18"
-            android:orientation="vertical" >
-
-            <LinearLayout
-                android:id="@+id/LeftChooseMonth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
-
-                <Button
-                    android:id="@+id/LeftGoLeft"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="&lt;" />
-
-                <TextView
-                    android:id="@+id/CalendarLeftData"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="TextView" />
-
-                <Button
-                    android:id="@+id/LeftGoRight"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text=">" />
-            </LinearLayout>
-
-            <FrameLayout
-                android:id="@+id/CallendarLeftData"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <TableLayout
-                    android:id="@+id/LeftTable"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="right" >
-
-                    <TableRow
-                        android:id="@+id/tableRow1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_gravity="center"
-                        android:layout_weight="1"
-                        android:gravity="center" >
-
-                        <TextView
-                            android:id="@+id/Left1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="center" />
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/tableRow2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center" >
-
-                        <TextView
-                            android:id="@+id/Left2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="TextView" />
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/tableRow3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center" >
-
-                        <TextView
-                            android:id="@+id/Left3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="TextView" />
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/tableRow4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center" >
-
-                        <TextView
-                            android:id="@+id/Left4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="TextView" />
-                    </TableRow>
-                </TableLayout>
-
-            </FrameLayout>
-
-        </LinearLayout>
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.2"
+        android:baselineAligned="false" >
 
         <FrameLayout
-            android:id="@+id/Comparation"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.25" >
+            android:layout_weight="0.3"
+            tools:ignore="NestedWeights" >
 
-            <TableLayout
-                android:id="@+id/TableLayout01"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="45dp" >
-
-                <TableRow
-                    android:id="@+id/TableRow05"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center" >
-
-                    <TextView
-                        android:id="@+id/Mid1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:gravity="center"
-                        android:text="TextView" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/TableRow06"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center" >
-
-                    <TextView
-                        android:id="@+id/Mid2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="TextView" />
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/TableRow07"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center" >
-
-                    <TextView
-                        android:id="@+id/Mid3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center"
-                        android:text="TextView" />
-
-                </TableRow>
-
-                <TableRow
-                    android:id="@+id/TableRow08"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center" >
-
-                    <TextView
-                        android:id="@+id/Mid4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="TextView" />
-                </TableRow>
-            </TableLayout>
-
+            <TextView
+                android:id="@+id/hour"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity="center" />
         </FrameLayout>
 
         <LinearLayout
-            android:id="@+id/CalendarRight"
-            android:layout_width="wrap_content"
+            android:id="@+id/LinearLayout2"
+            android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.18"
-            android:orientation="vertical" >
+            android:layout_weight=".7"
+            android:orientation="horizontal" >
 
-            <LinearLayout
-                android:id="@+id/RightChooseMonth"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal" >
+            <TextView
+                android:id="@+id/menuName"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:gravity = "center"
+                android:text="DIVISION"
+                tools:ignore="HardcodedText" />
 
-                <Button
-                    android:id="@+id/RightGoLeft"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text="&lt;" />
-
-                <TextView
-                    android:id="@+id/CalendarRightData"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:text="TextView" />
-
-                <Button
-                    android:id="@+id/RightGoRight"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:text=">" />
-            </LinearLayout>
-
-            <FrameLayout
-                android:id="@+id/CalendarRightData"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content" >
-
-                <TableLayout
-                    android:id="@+id/RightTable"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" >
-
-                    <TableRow
-                        android:id="@+id/TableRow02"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center" >
-
-                        <TextView
-                            android:id="@+id/Right1"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_gravity="center"
-                            android:gravity="center"
-                            android:text="TextView" />
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/TableRow01"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center" >
-
-                        <TextView
-                            android:id="@+id/Right2"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="TextView" />
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/TableRow04"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center" >
-
-                        <TextView
-                            android:id="@+id/Right3"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="TextView" />
-                    </TableRow>
-
-                    <TableRow
-                        android:id="@+id/TableRow03"
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:gravity="center" >
-
-                        <TextView
-                            android:id="@+id/Right4"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="TextView" />
-                    </TableRow>
-                </TableLayout>
-
-            </FrameLayout>
         </LinearLayout>
 
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:baselineAligned="false"
+        android:orientation="vertical" >
+    
+	    <TableLayout 
+	        android:id="@+id/HistoryTable" 
+	        android:layout_width="match_parent"
+	        android:layout_height="match_parent">
+
+	        <TableRow
+	            android:id="@+id/tableRow1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="wrap_content" >
+
+	            <LinearLayout
+	                android:id="@+id/LeftData"
+	                android:layout_width="0dp"
+	                android:layout_height="wrap_content"
+	                android:layout_weight="0.33"
+	                android:orientation="vertical" >
+
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:weightSum="1"
+	                    tools:ignore="UselessParent" >
+
+	                    <Button
+	                        android:id="@+id/LeftGoLeft"
+	                        android:layout_width="0dp"
+	                        android:layout_height="wrap_content"
+	                        android:layout_weight="0.3"/>
+
+	                    <TextView
+	                        android:id="@+id/LeftMonth"
+	                        android:layout_width="0dp"
+	                        android:layout_height="match_parent"
+	                        android:layout_weight="0.4"
+	                        android:gravity="center"
+	                        android:layout_gravity="center_horizontal"
+	                        android:text="Month\ncoiso" />
+
+	                    <Button
+	                        android:id="@+id/LeftGoRight"
+	                        android:layout_width="0dp"
+	                        android:layout_height="wrap_content"
+	                        android:layout_weight="0.3"/>
+
+	                </LinearLayout>
+
+	            </LinearLayout>
+
+	            <LinearLayout
+	                android:id="@+id/MidData"
+	                android:layout_width="0dp"
+	                android:layout_height="wrap_content"
+	                android:layout_weight="0.33"
+	                android:orientation="vertical" >
+
+	                <Button
+	                    android:id="@+id/button5"
+	                    android:layout_width="wrap_content"
+	                    android:layout_height="wrap_content"
+	                    android:visibility="invisible" />
+
+	            </LinearLayout>
+
+	            <LinearLayout
+	                android:id="@+id/RightData"
+	                android:layout_width="0dp"
+	                android:layout_height="wrap_content"
+	                android:layout_gravity="center"
+	                android:layout_weight="0.33"
+	                android:orientation="vertical" >
+
+	                <LinearLayout
+	                    android:layout_width="match_parent"
+	                    android:layout_height="wrap_content"
+	                    android:weightSum="1" >
+
+	                    <Button
+	                        android:id="@+id/RightGoLeft"
+	                        android:layout_width="0dp"
+	                        android:layout_height="wrap_content"
+	                        android:layout_weight="0.3"/>
+
+	                    <TextView
+	                        android:id="@+id/RightMonth"
+	                        android:layout_width="0dp"
+	                        android:layout_height="match_parent"
+	                        android:layout_weight="0.4"
+	                        android:gravity="center"
+	                        android:layout_gravity="center_horizontal"
+	                        android:text="Month\ncoiso" />
+
+	                    <Button
+	                        android:id="@+id/RightGoRight"
+	                        android:layout_width="0dp"
+	                        android:layout_height="wrap_content"
+	                        android:layout_weight="0.3"/>
+
+	                </LinearLayout>
+
+	            </LinearLayout>
+
+	        </TableRow>
+
+		</TableLayout>
+	
+	</LinearLayout>
 
 </LinearLayout>
