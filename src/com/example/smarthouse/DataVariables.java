@@ -103,20 +103,19 @@ public class DataVariables extends Application{
         _divisions.add(new Division("Dispensa"));
         _divisions.add(new Division("Quarto Joao"));
         _divisions.add(new Division("Quarto Andre"));
+        _history = new History();
         for(Division division : _divisions){
         	for(Device device : division.getDevices()){
         		for(int month = 0; month < 12; month++){
-        			HashMap<Time, Float> history = device.getHistory().getConsumptionHistory();
         			for(int day = 0; day < 31; day++){
 	        			float newValue = ((new Random()).nextFloat() * 500) / ((new Random()).nextFloat() * 250);
 	        			Time time = new Time();
 	        			time.set(day, month, 2013);
-	        			history.put(time, newValue);
+	        			_history.addConsumption(time, newValue);
         			}
         		}
         	}
-        }
-        		
+        }		
 	}
 	
 	 public static int randBetween(int start, int end) {

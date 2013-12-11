@@ -1,20 +1,19 @@
 package com.example.smarthouse.history;
 
-import java.util.ArrayList;
-
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.format.Time;
-import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
+import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
-import android.widget.TableLayout;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
 import com.example.smarthouse.DataVariables;
-import com.example.smarthouse.Division;
 import com.example.smarthouse.History;
 import com.example.smarthouse.R;
 
@@ -25,9 +24,12 @@ public class HistoryActivity extends FragmentActivity {
 	
 	private final String[] MONTH_DAY = {"Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" };
 	
+	private FrameLayout.LayoutParams _params;
+	private TextView _defaultText;
+	
 	private DataVariables _dataVariables;
-	private TableLayout _tableLayout;
 	private History _history;
+	private LinearLayout _leftData, _rightData, _midData;
 	
 	private Time _leftTime, _rightTime;
 	
@@ -41,10 +43,24 @@ public class HistoryActivity extends FragmentActivity {
 		setContentView(R.layout.activity_history);
 		_dataVariables = (DataVariables)getApplication();
 		
-		_leftTime = _rightTime = new Time();
-		prevMonth(_rightTime, _leftTime);
+		_params = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
+		_params.gravity = Gravity.CENTER;
+		_params.setMargins(5, 10, 0, 0);
+		_defaultText = new TextView(this);
+		_defaultText.setGravity(Gravity.CENTER);
+		_leftData = (LinearLayout)findViewById(R.id.LeftData);
+		_rightData = (LinearLayout)findViewById(R.id.RightData);
+		_midData = (LinearLayout)findViewById(R.id.MidData);
 		
+		_leftTime = new Time();
+		_rightTime = new Time();
+		_leftTime.setToNow();
+		_rightTime.setToNow();
+		prevMonth(_leftTime, _rightTime);
+		
+		setUpViews();
 		((TextView)findViewById(R.id.menuName)).setText(TITLE);
+		((TextView)findViewById(R.id.menuName)).setTextSize(((int)(_dataVariables.WIDTH*0.05)));
 		
 		
 		
@@ -62,41 +78,58 @@ public class HistoryActivity extends FragmentActivity {
 		_rightGoLeft.setText("<");
 		_leftGoRight.setText(">");
 		_rightGoRight.setText(">");
-		_leftMonth.setText(MONTH_DAY[_leftTime.month]);
-		_rightMonth.setText(MONTH_DAY[_rightTime.month]);
+		_leftData.addView(clone(_defaultText), _params);
+		_rightData.addView(clone(_defaultText), _params);
+		_midData.addView(clone(_defaultText), _params);
+		refreshLeftSide();
+		refreshRightSide();
+		refreshMidSide();
 		_leftGoLeft.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	Log.d("XXX", "LeftGoLeft");
+            	prevMonth(_leftTime, _rightTime);
+            	refreshLeftSide();
+            	refreshMidSide();
             }
         });
 		_leftGoRight.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	Log.d("XXX", "LeftGoRight");
+            	nextMonth(_leftTime, _rightTime);
+            	refreshLeftSide();
+            	refreshMidSide();
             }
         });
 		_rightGoLeft.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	Log.d("XXX", "RightGoLeft");
+            	prevMonth(_rightTime, _leftTime);
+            	refreshRightSide();
+            	refreshMidSide();
             }
         });
 		_rightGoRight.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	Log.d("XXX", "RightGoRight");
+            	nextMonth(_rightTime, _leftTime);
+            	refreshRightSide();
+            	refreshMidSide();
             }
         });
 	}
 
-	private void setLeftSide(){
+	private void refreshLeftSide(){
 		float consumption = _dataVariables._history.getAllConsumptionFromMonth(_leftTime.month);
-		((TextView)((TableRow)_tableLayout.getChildAt(1)).getChildAt(0)).setText(String.valueOf(consumption));
+		((TextView)_leftData.getChildAt(1)).setText(String.valueOf(consumption));
+		_leftMonth.setText(MONTH_DAY[_leftTime.month] + "\n" + _leftTime.year);
 	}
 	
-	private void setRightSide(){
-
+	private void refreshRightSide(){
+		float consumption = _dataVariables._history.getAllConsumptionFromMonth(_rightTime.month);
+		((TextView)_rightData.getChildAt(1)).setText(String.valueOf(consumption));
+		_rightMonth.setText(MONTH_DAY[_rightTime.month] + "\n" + _rightTime.year);
 	}
 	
 	private void refreshMidSide(){
-
+		float leftConsumptionValue = Float.parseFloat((String) ((TextView)_leftData.getChildAt(1)).getText());
+		float rightConsumptionValue = Float.parseFloat((String) ((TextView)_rightData.getChildAt(1)).getText());
+		((TextView)_midData.getChildAt(1)).setText(String.valueOf(leftConsumptionValue - rightConsumptionValue));
 	}
 	
 	@Override
@@ -114,6 +147,27 @@ public class HistoryActivity extends FragmentActivity {
 		else{
 			time.month--;
 		}
+		if(time.month == other.month && time.year == other.year)
+			prevMonth(time, other);
+	}
+	
+	private void nextMonth(Time time, Time other){
+		if(time.month >= 11){
+			time.month = 0;
+			time.year++;
+		}
+		else{
+			time.month++;
+		}
+		if(time.month == other.month && time.year == other.year)
+			nextMonth(time, other);
+	}
+	
+	private TextView clone(TextView textView){
+		TextView clone = new TextView(this);
+		clone.setGravity(textView.getGravity());
+		clone.setLayoutParams(_params);
+		return clone;
 	}
 	
 }

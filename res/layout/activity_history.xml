@@ -63,10 +63,11 @@
 	            android:layout_height="wrap_content" >
 
 	            <LinearLayout
+	                android:id="@+id/LeftData"
 	                android:layout_width="0dp"
 	                android:layout_height="wrap_content"
-	                android:orientation="vertical"
-	                android:layout_weight="0.33" >
+	                android:layout_weight="0.33"
+	                android:orientation="vertical" >
 
 	                <LinearLayout
 	                    android:layout_width="match_parent"
@@ -83,9 +84,11 @@
 	                    <TextView
 	                        android:id="@+id/LeftMonth"
 	                        android:layout_width="0dp"
-	                        android:layout_height="wrap_content"
+	                        android:layout_height="match_parent"
 	                        android:layout_weight="0.4"
-	                        android:text="Month" />
+	                        android:gravity="center"
+	                        android:layout_gravity="center_horizontal"
+	                        android:text="Month\ncoiso" />
 
 	                    <Button
 	                        android:id="@+id/LeftGoRight"
@@ -98,10 +101,11 @@
 	            </LinearLayout>
 
 	            <LinearLayout
+	                android:id="@+id/MidData"
 	                android:layout_width="0dp"
 	                android:layout_height="wrap_content"
-	                android:orientation="vertical"
-	                android:layout_weight="0.33" >
+	                android:layout_weight="0.33"
+	                android:orientation="vertical" >
 
 	                <Button
 	                    android:id="@+id/button5"
@@ -112,11 +116,12 @@
 	            </LinearLayout>
 
 	            <LinearLayout
+	                android:id="@+id/RightData"
 	                android:layout_width="0dp"
 	                android:layout_height="wrap_content"
-	                android:orientation="vertical"
 	                android:layout_gravity="center"
-	                android:layout_weight="0.33" >
+	                android:layout_weight="0.33"
+	                android:orientation="vertical" >
 
 	                <LinearLayout
 	                    android:layout_width="match_parent"
@@ -132,10 +137,11 @@
 	                    <TextView
 	                        android:id="@+id/RightMonth"
 	                        android:layout_width="0dp"
-	                        android:layout_height="wrap_content"
+	                        android:layout_height="match_parent"
 	                        android:layout_weight="0.4"
-	                        android:textAlignment="center"
-	                        android:text="Month" />
+	                        android:gravity="center"
+	                        android:layout_gravity="center_horizontal"
+	                        android:text="Month\ncoiso" />
 
 	                    <Button
 	                        android:id="@+id/RightGoRight"

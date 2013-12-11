@@ -15,8 +15,14 @@ public class History {
 		setUsageHistory(new HashMap<Time, Usage>());
 	}
 
+	public void addConsumption(Time time, float consumption) {
+		_consumptionHistory.put(time, consumption);
+	}
+	
 	public void addConsumption(float consumption) {
-		_consumptionHistory.put(new Time(), consumption);
+		Time time = new Time();
+		time.setToNow();
+		_consumptionHistory.put(time, consumption);
 	}
 	
 	public void addUsage(Usage usage){
