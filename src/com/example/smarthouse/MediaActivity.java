@@ -74,7 +74,7 @@ public class MediaActivity extends FragmentActivity {
                     int groupPosition, int childPosition, long id) {
                 // TODO Auto-generated method stub
                 moviePopup dialog = new moviePopup();
-                
+
                 // Supply num input as an argument.
                 Bundle args = new Bundle();
                 args.putString("movie", listDataChild.get(listDataHeader.get(groupPosition)).get(childPosition));

@@ -38,6 +38,7 @@ public class ScreenSaverActivity extends FragmentActivity {
 		_dataVariables = (DataVariables)getApplication();
 		if(!_dataVariables.isWindowInited())
 			_dataVariables.initWindowSize(this);
+		_dataVariables._currentAct = this;
 		_handler.removeCallbacks(_updateTimeTask);
 		_handler.postDelayed(_updateTimeTask, 1000); 
 		initSeekBar();

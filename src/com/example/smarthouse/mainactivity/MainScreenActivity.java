@@ -39,6 +39,7 @@ public class MainScreenActivity extends FragmentActivity{
 		_dataVariables = (DataVariables)getApplication();
 		if(!_dataVariables.isWindowInited())
 			_dataVariables.initWindowSize(this);
+		_dataVariables._currentAct = this;
 		TextView _menuName = (TextView)findViewById(R.id.menuName);
 		((Button)findViewById(R.id.historyButton)).setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {

@@ -3,21 +3,27 @@ package com.example.smarthouse;
 import java.util.ArrayList;
 import java.util.Random;
 
+import com.example.smarthouse.popupsalerts.moviePopup;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Application;
 import android.graphics.Point;
 import android.os.Build;
+import android.os.Handler;
+import android.support.v4.app.FragmentActivity;
 import android.text.format.Time;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
+import com.example.smarthouse.popupsalerts.notfDialog;
 
-public class DataVariables extends Application{
+public class DataVariables extends Application {
 	
 	public int WIDTH = 0;
 	public int HEIGHT = 0;
 
+	public FragmentActivity _currentAct;
 	public User _currentUser;
 	public Division _currentDivision;
 	public Device _currentDevice;
@@ -25,10 +31,24 @@ public class DataVariables extends Application{
 	public ArrayList<User> _users;
 	public History _history;
 	public ArrayList<Division> _divisions;	
+
+	private Handler _handler = new Handler();
+	private Runnable _generateAlert = new Runnable() {
+		public void run() {
+            if(_currentAct != null) {
+            	notfDialog dialog = new notfDialog();
+            	dialog.show(_currentAct.getSupportFragmentManager(), "notfDialog");
+				//_consumptionView.setText(String.valueOf(_consumptionValue + (new Random()).nextFloat()*30/1000) + " kWh");
+				_handler.postDelayed(this, 1000000);
+            }
+		}
+	};
 	
 	public DataVariables(){
 		initUsers();
 		initDivisions();
+		_handler.removeCallbacks(_generateAlert);
+		_handler.postDelayed(_generateAlert, randBetween(5000, 10000));
 	}
 	
 	public boolean isWindowInited(){

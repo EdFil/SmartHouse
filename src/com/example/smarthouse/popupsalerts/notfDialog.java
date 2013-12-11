@@ -14,8 +14,19 @@ public class notfDialog extends DialogFragment{
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         // Use the Builder class for convenient dialog construction
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setMessage(R.string.notfText)
-               .setPositiveButton(R.string.OK, new DialogInterface.OnClickListener() {
+        builder.setTitle("Alerta de entrada");
+        builder.setMessage("Joao a porta"/*R.string.notfText*/)
+               .setPositiveButton("Abrir", new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                       dialog.dismiss();
+                   }
+               })
+               .setNeutralButton("Não abrir", new DialogInterface.OnClickListener() {
+                   public void onClick(DialogInterface dialog, int id) {
+                       dialog.dismiss();
+                   }
+               })
+               .setNegativeButton("Ignorar", new DialogInterface.OnClickListener() {
                    public void onClick(DialogInterface dialog, int id) {
                        dialog.dismiss();
                    }
