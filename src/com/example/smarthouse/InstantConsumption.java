@@ -21,7 +21,7 @@ public class InstantConsumption implements InfoArea {
 					_consumptionValue += device.getCurrentConsumption();
 				}
 			}
-			_consumptionView.setText(String.valueOf(_consumptionValue + (new Random()).nextFloat()*30) + " kWh");
+			_consumptionView.setText(String.valueOf(_consumptionValue + (new Random()).nextFloat()*30/1000) + " kWh");
 			_handler.postDelayed(this, 1000);
 		}
 	};

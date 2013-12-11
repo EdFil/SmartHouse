@@ -37,7 +37,7 @@ public class MediaActivity extends FragmentActivity {
 			_dataVariables.initWindowSize(this);
 		_division = _dataVariables._currentDivision;
 		TextView _deviceName = (TextView)findViewById(R.id.deviceName);
-		_deviceName.setText(_division.getName());
+		_deviceName.setText(_division.getName()+"-"+_dataVariables._currentDevice.getName());
 		_deviceName.setTextSize(((int)(_dataVariables.WIDTH*0.05)));
 		
 	       // get the listview

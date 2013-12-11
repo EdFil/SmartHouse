@@ -62,7 +62,7 @@ public class MainScreenActivity extends FragmentActivity{
 					startActivity(new Intent(getApplicationContext(), DivisionActivity.class));
 	            }
 	        } );
-			row.addView(button,((int)(_dataVariables.WIDTH*0.3)),((int)(_dataVariables.HEIGHT*0.2)));
+			row.addView(button,((int)(_dataVariables.WIDTH*0.3)),((int)(_dataVariables.HEIGHT*0.3)));
 			buttonCount++; i++;
 		}
 		
