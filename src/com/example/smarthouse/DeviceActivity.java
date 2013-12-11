@@ -90,7 +90,7 @@ public class DeviceActivity extends FragmentActivity {
             public void onClick(View v) {
             	View frag = getSupportFragmentManager().findFragmentById(R.id.details).getView();
             	_dataVariables._currentDevice.turnOff(_dataVariables._currentUser);
-            	((TextView)frag.findViewById(R.id.Cons)).setText("Consumo Instantaneo: "+"0");
+            	((TextView)frag.findViewById(R.id.Cons)).setText("Consumo Instantaneo: "+0);
             }
         });
         
@@ -120,7 +120,7 @@ public class DeviceActivity extends FragmentActivity {
                     }
             		
             		((TextView)frag.findViewById(R.id.AlertDescription)).setText("");
-            		((TextView)frag.findViewById(R.id.Product)).setText( listDataHeader.get(groupPosition) +""+ listDataChild.get( listDataHeader.get(groupPosition)).get(childPosition));
+            		((TextView)frag.findViewById(R.id.Product)).setText( "Aparelho: "+ listDataChild.get( listDataHeader.get(groupPosition)).get(childPosition));
             		((TextView)frag.findViewById(R.id.Cons)).setText("Consumo Instantaneo: " +_dataVariables._currentDevice.getCurrentConsumption()+" ");
             		Button b;
                     if(( listDataChild.get( listDataHeader.get(groupPosition)).get(childPosition) ).equals("Televisao"))
