@@ -48,7 +48,7 @@ public class DataVariables extends Application {
 		initUsers();
 		initDivisions();
 		_handler.removeCallbacks(_generateAlert);
-		_handler.postDelayed(_generateAlert, randBetween(5000, 10000));
+		_handler.postDelayed(_generateAlert, randBetween(1000, 2000));
 	}
 	
 	public boolean isWindowInited(){
@@ -92,7 +92,7 @@ public class DataVariables extends Application {
 	
 	private void initDivisions() {
 		_divisions = new ArrayList<Division>();
-		Division cozinha = new Division("Cozinhas");
+		Division cozinha = new Division("Cozinha", R.drawable.cozinha);
 		cozinha.addDevice(new TimedDevice("Torradeira"));
 		cozinha.addDevice(new TimedDevice("Frigorifico"));
 		cozinha.addDevice(new TimedDevice("Fogao"));
@@ -101,29 +101,37 @@ public class DataVariables extends Application {
 		cozinha.addDevice(new TimedDevice("Televisao"));
 		cozinha.addDevice(new TimedDevice("Luzes"));
 		cozinha.getDevice("Torradeira").addNotification(new Notification("Torradeira a arder!"));
-		cozinha.getDevice("Fogao").addNotification(new Notification("Fog�o a arder!"));
-		cozinha.getDevice("Fogao").addNotification(new Notification("Fog�o cheio"));
-		cozinha.getDevice("Fogao").addNotification(new Notification("Fog�o demasiado quente!"));
-		cozinha.getDevice("Esquentador").addNotification(new Notification("Esquentador desligado do g�s!"));
+		cozinha.getDevice("Fogao").addNotification(new Notification("Fogao a arder!"));
+		cozinha.getDevice("Fogao").addNotification(new Notification("Fogao cheio"));
+		cozinha.getDevice("Fogao").addNotification(new Notification("Fogao demasiado quente!"));
+		cozinha.getDevice("Esquentador").addNotification(new Notification("Esquentador desligado do gas!"));
 		cozinha.getDevice("Esquentador").addNotification(new Notification("Esquentador demasiado quente!"));
-		cozinha.getDevice("Televisao").addNotification(new Notification("Televis�o da cozinha a arder!"));
-		cozinha.getDevice("Televisao").addNotification(new Notification("Televis�o da cozinha demasiado quente!"));
-		Division sala = new Division("Sala");
+		cozinha.getDevice("Televisao").addNotification(new Notification("Televisao da cozinha a arder!"));
+		cozinha.getDevice("Televisao").addNotification(new Notification("Televisao da cozinha demasiado quente!"));
+		Division sala = new Division("Sala", R.drawable.sala);
 		sala.addDevice(new TimedDevice("Televisao"));
 		sala.addDevice(new TimedDevice("PS4"));
 		sala.addDevice(new TimedDevice("Lareira Eletrica"));
 		sala.addDevice(new TimedDevice("Luzes"));
-		sala.getDevice("Televisao").addNotification(new Notification("Televis�o da sala a arder!"));
-		sala.getDevice("Televisao").addNotification(new Notification("Curto circuito na televis�o da sala!"));
-		sala.getDevice("Televisao").addNotification(new Notification("Televis�o da sala demasiado quente!"));
+		sala.getDevice("Televisao").addNotification(new Notification("Televisao da sala a arder!"));
+		sala.getDevice("Televisao").addNotification(new Notification("Curto circuito na televisao da sala!"));
+		sala.getDevice("Televisao").addNotification(new Notification("Televisao da sala demasiado quente!"));
 		sala.getDevice("PS4").addNotification(new Notification("PS4 demasiado quente!"));
-		sala.getDevice("PS4").addNotification(new Notification("PS4 ligada � muito tempo!"));
+		sala.getDevice("PS4").addNotification(new Notification("PS4 ligada ha muito tempo!"));
 		_divisions.add(cozinha);
         _divisions.add(sala);
-        _divisions.add(new Division("Quarto Edgar"));
-        _divisions.add(new Division("Dispensa"));
-        _divisions.add(new Division("Quarto Joao"));
-        _divisions.add(new Division("Quarto Andre"));
+        Division quartoEdgar = new Division("Quarto Edgar", R.drawable.quarto);
+        quartoEdgar.addDevice(new TimedDevice("Carro Telecomandado"));
+        _divisions.add(quartoEdgar);
+        Division dispensa = new Division("Dispensa", R.drawable.dispensa);
+        dispensa.addDevice(new TimedDevice("Desumidificador"));
+        _divisions.add(dispensa);
+        Division quartojoao = new Division("Quarto Joao", R.drawable.quarto);
+        quartojoao.addDevice(new TimedDevice("Portatil"));
+        _divisions.add(quartojoao);
+        Division quartoAndre = new Division("Quarto Andre", R.drawable.quarto);
+        quartoAndre.addDevice(new TimedDevice("Impresora3D"));
+        _divisions.add(quartoAndre);
         _history = new History();
         for(Division division : _divisions){
         	for(Device device : division.getDevices()){

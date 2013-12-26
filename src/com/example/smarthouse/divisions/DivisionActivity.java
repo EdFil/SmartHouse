@@ -60,36 +60,33 @@ public class DivisionActivity extends Activity {
         button.setText("Iluminacao");
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	_dataVariables._currentDevice = _division.getDevices().get(v.getId());
 				Intent i = new Intent(getApplicationContext(), LightActivity.class);
 				startActivity(i);
             }
         });
-        row.addView(button,((int)(_dataVariables.WIDTH*0.35)),((int)(_dataVariables.HEIGHT*0.7*0.8)));
+        row.addView(button,((int)(_dataVariables.WIDTH*0.31)),((int)(_dataVariables.HEIGHT*0.7*0.8)));
         
         button = new Button(this);
         button.setId(1);
         button.setText("Aparelhos");
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	_dataVariables._currentDevice = _division.getDevices().get(v.getId());
 				Intent i = new Intent(getApplicationContext(), DeviceActivity.class);
 				startActivity(i);
             }
         });
-        row.addView(button,((int)(_dataVariables.WIDTH*0.35)),((int)(_dataVariables.HEIGHT*0.7*0.8)));
+        row.addView(button,((int)(_dataVariables.WIDTH*0.31)),((int)(_dataVariables.HEIGHT*0.7*0.8)));
         
         button = new Button(this);
         button.setId(2);
         button.setText("Consumo");
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-            	_dataVariables._currentDevice = _division.getDevices().get(v.getId());
 				Intent i = new Intent(getApplicationContext(), HistoryActivity.class);
 				startActivity(i);
             }
         });
-        row.addView(button,((int)(_dataVariables.WIDTH*0.35)),((int)(_dataVariables.HEIGHT*0.7*0.8)));
+        row.addView(button,((int)(_dataVariables.WIDTH*0.31)),((int)(_dataVariables.HEIGHT*0.7*0.8)));
 	}
 	
 	@Override

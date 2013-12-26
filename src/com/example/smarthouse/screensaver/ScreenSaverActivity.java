@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.Menu;
 import android.widget.FrameLayout;
 import android.widget.SeekBar;
@@ -65,11 +66,12 @@ public class ScreenSaverActivity extends FragmentActivity {
 		   @Override 
 		   public void onProgressChanged(SeekBar seekBar, int progress, 
 		     boolean fromUser) { 
-			   if(progress >= 80) {
+			   if(progress == 100) {
 				   Intent i = new Intent(getApplicationContext(), MainScreenActivity.class);
 				   startActivity(i);
+				   Log.i("Progress",0+"");
+				   
 			   }
-			
 		    //seekBarValue.setText(String.valueOf(progress)+"%"); 
 		   } 
 		

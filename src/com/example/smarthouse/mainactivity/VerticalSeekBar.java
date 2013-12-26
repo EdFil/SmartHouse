@@ -1,6 +1,7 @@
 package com.example.smarthouse.mainactivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -35,7 +36,6 @@ public class VerticalSeekBar extends SeekBar {
     protected void onDraw(Canvas c) {
         c.rotate(90);
         c.translate(0, -getWidth());
-
         super.onDraw(c);
     }
 
@@ -44,19 +44,26 @@ public class VerticalSeekBar extends SeekBar {
         if (!isEnabled()) {
             return false;
         }
-
+        int i=0;
         switch (event.getAction()) {
         	case MotionEvent.ACTION_OUTSIDE:
             case MotionEvent.ACTION_DOWN:
-            case MotionEvent.ACTION_MOVE:
-            case MotionEvent.ACTION_UP:
-                    int i=0;
-                    i=getMax() - (int) (getMax() * event.getY() / getHeight());
+                i=0;
+                i=getMax() - (int) (getMax() * event.getY() / getHeight());
                 setProgress(100-i);
                 Log.i("Progress",getProgress()+"");
                 onSizeChanged(getWidth(), getHeight(), 0, 0);
                 break;
-
+            case MotionEvent.ACTION_MOVE:
+                i=0;
+                i=getMax() - (int) (getMax() * event.getY() / getHeight());
+                setProgress(100-i);
+                Log.i("Progress",getProgress()+"");
+                onSizeChanged(getWidth(), getHeight(), 0, 0);
+                break;
+            case MotionEvent.ACTION_UP:
+            	setProgress(0);
+            	break;
             case MotionEvent.ACTION_CANCEL:
                 break;
         }

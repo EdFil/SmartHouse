@@ -62,6 +62,8 @@ public class MainScreenActivity extends FragmentActivity{
 			Button button = new Button(this);
 			button.setText(_dataVariables._divisions.get(buttonCount).getName());
 			button.setId(buttonCount);
+			//just a test
+			button.setCompoundDrawablesWithIntrinsicBounds(0, _dataVariables._divisions.get(buttonCount).getImg(), 0, 0);
 			button.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
 					_dataVariables._currentDivision = _dataVariables._divisions.get(v.getId());

@@ -7,8 +7,10 @@ public class Division{
 	private String _name;
 	private ArrayList<Device> _devices;
 	private DivisionHistory _history;
+	private int _img;
 	
-	public Division(String name){
+	public Division(String name, int img){
+		setImg(img);
 		setName(name);
 		setHistory(new DivisionHistory());
 		setDevices(new ArrayList<Device>());
@@ -32,6 +34,7 @@ public class Division{
 	
 	//Getters 
 	public String getName() { return _name;	}
+	public int getImg() { return _img; }
 	public DivisionHistory getHistory() { return _history; }
 	public ArrayList<Device> getDevices() { return _devices; }
 	public Device getDevice(String name){
@@ -43,8 +46,8 @@ public class Division{
 		return null;
 	}
 
-	
 	//Setters
+	private void setImg(int _img) { this._img = _img; }
 	private void setName(String _name) { this._name = _name; }
 	private void setHistory(DivisionHistory history) { _history = history; }
 	private void setDevices(ArrayList<Device> devices) { _devices = devices; }

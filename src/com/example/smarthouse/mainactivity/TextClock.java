@@ -46,9 +46,9 @@ public class TextClock implements Runnable {
 		if(_dateTextView1 != null)
 			_dateTextView1.setTextSize((int)(_dataVariables.HEIGHT*0.1));
 		if(_dateTextView2 != null)
-		_dateTextView2.setTextSize((int)(_dataVariables.HEIGHT*0.07));
+		_dateTextView2.setTextSize((int)(_dataVariables.HEIGHT*0.05));
 		if(_dateTextView3 != null)
-		_dateTextView3.setTextSize((int)(_dataVariables.HEIGHT*0.07));
+		_dateTextView3.setTextSize((int)(_dataVariables.HEIGHT*0.05));
 		
 		if (runner == null){ 
            runner = new Thread(this);

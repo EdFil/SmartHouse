@@ -43,8 +43,8 @@ public class InstantConsumption implements InfoArea {
 		_titleView.setTextSize((int)(_dataVariables.HEIGHT*0.1));
 		_titleView.setGravity(Gravity.CENTER_HORIZONTAL);
 		_titleView.setTypeface(null, Typeface.BOLD);
-		FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, (int) (_dataVariables.HEIGHT*0.4));
-		params.gravity = Gravity.CENTER;
+		FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, (int) (_dataVariables.HEIGHT*0.8));
+		params.gravity = Gravity.TOP;
 		_titleView.setLayoutParams(params);
 		
 		_consumptionView.setTextSize((int)(_dataVariables.HEIGHT*0.07));
