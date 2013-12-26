@@ -16,6 +16,8 @@ import android.text.format.Time;
 import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
+import android.widget.ToggleButton;
+
 import com.example.smarthouse.popupsalerts.notfDialog;
 
 public class DataVariables extends Application {
@@ -100,6 +102,10 @@ public class DataVariables extends Application {
 		cozinha.addDevice(new TimedDevice("Esquentador"));
 		cozinha.addDevice(new TimedDevice("Televisao"));
 		cozinha.addDevice(new TimedDevice("Luzes"));
+		cozinha.addLight(new TimedDevice("Exaustor"));
+		cozinha.addLight(new TimedDevice("Expositor"));
+		cozinha.addLight(new TimedDevice("Tecto"));
+		cozinha.addLight(new TimedDevice("Bancada"));
 		cozinha.getDevice("Torradeira").addNotification(new Notification("Torradeira a arder!"));
 		cozinha.getDevice("Fogao").addNotification(new Notification("Fogao a arder!"));
 		cozinha.getDevice("Fogao").addNotification(new Notification("Fogao cheio"));
@@ -113,6 +119,9 @@ public class DataVariables extends Application {
 		sala.addDevice(new TimedDevice("PS4"));
 		sala.addDevice(new TimedDevice("Lareira Eletrica"));
 		sala.addDevice(new TimedDevice("Luzes"));
+		sala.addLight(new TimedDevice("Tecto"));
+		sala.addLight(new TimedDevice("Bar"));
+		sala.addLight(new TimedDevice("Candeiro"));
 		sala.getDevice("Televisao").addNotification(new Notification("Televisao da sala a arder!"));
 		sala.getDevice("Televisao").addNotification(new Notification("Curto circuito na televisao da sala!"));
 		sala.getDevice("Televisao").addNotification(new Notification("Televisao da sala demasiado quente!"));
@@ -122,15 +131,22 @@ public class DataVariables extends Application {
         _divisions.add(sala);
         Division quartoEdgar = new Division("Quarto Edgar", R.drawable.quarto);
         quartoEdgar.addDevice(new TimedDevice("Carro Telecomandado"));
+        quartoEdgar.addLight(new TimedDevice("Candeiro"));
+        quartoEdgar.addLight(new TimedDevice("Tecto"));
         _divisions.add(quartoEdgar);
         Division dispensa = new Division("Dispensa", R.drawable.dispensa);
         dispensa.addDevice(new TimedDevice("Desumidificador"));
+        dispensa.addLight(new TimedDevice("Tecto"));
         _divisions.add(dispensa);
         Division quartojoao = new Division("Quarto Joao", R.drawable.quarto);
         quartojoao.addDevice(new TimedDevice("Portatil"));
+        quartojoao.addLight(new TimedDevice("Candeiro"));
+        quartojoao.addLight(new TimedDevice("Tecto"));
         _divisions.add(quartojoao);
         Division quartoAndre = new Division("Quarto Andre", R.drawable.quarto);
         quartoAndre.addDevice(new TimedDevice("Impresora3D"));
+        quartoAndre.addLight(new TimedDevice("Candeiro"));
+        quartoAndre.addLight(new TimedDevice("Tecto"));
         _divisions.add(quartoAndre);
         _history = new History();
         for(Division division : _divisions){

@@ -4,10 +4,12 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.NavUtils;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -52,7 +54,11 @@ public class DivisionActivity extends Activity {
 		row = new TableRow(this);
 		_tableLayout.addView(row);
 		i = 0;
-		
+		((Button)findViewById(R.id.historyButton)).setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
+            }
+        } );;
 		Button button;
 		
 		button = new Button(this);
@@ -64,7 +70,7 @@ public class DivisionActivity extends Activity {
 				startActivity(i);
             }
         });
-        row.addView(button,((int)(_dataVariables.WIDTH*0.31)),((int)(_dataVariables.HEIGHT*0.7*0.8)));
+        row.addView(button,((int)(_dataVariables.WIDTH*0.40)),((int)(_dataVariables.HEIGHT*0.7*0.8)));
         
         button = new Button(this);
         button.setId(1);
@@ -75,23 +81,12 @@ public class DivisionActivity extends Activity {
 				startActivity(i);
             }
         });
-        row.addView(button,((int)(_dataVariables.WIDTH*0.31)),((int)(_dataVariables.HEIGHT*0.7*0.8)));
+        row.addView(button,((int)(_dataVariables.WIDTH*0.40)),((int)(_dataVariables.HEIGHT*0.7*0.8)));
         
-        button = new Button(this);
-        button.setId(2);
-        button.setText("Consumo");
-        button.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-				Intent i = new Intent(getApplicationContext(), HistoryActivity.class);
-				startActivity(i);
-            }
-        });
-        row.addView(button,((int)(_dataVariables.WIDTH*0.31)),((int)(_dataVariables.HEIGHT*0.7*0.8)));
 	}
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-		// Inflate the menu; this adds items to the action bar if it is present.
 		getMenuInflater().inflate(R.menu.division, menu);
 		return true;
 	}
@@ -100,13 +95,6 @@ public class DivisionActivity extends Activity {
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case android.R.id.home:
-			// This ID represents the Home or Up button. In the case of this
-			// activity, the Up button is shown. Use NavUtils to allow users
-			// to navigate up one level in the application structure. For
-			// more details, see the Navigation pattern on Android Design:
-			//
-			// http://developer.android.com/design/patterns/navigation.html#up-vs-back
-			//
 			NavUtils.navigateUpFromSameTask(this);
 			return true;
 		}

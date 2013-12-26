@@ -3,8 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".LightActivity" >
-    
+    tools:context=".LightActivity" >  
     
 	<LinearLayout
         android:layout_width="fill_parent"
@@ -70,7 +69,8 @@
 				    android:layout_height="match_parent"/>
 	  			 
 				<TextView
-				    android:id="@+id/expositor"
+				    android:id="@+id/l1"
+				    android:visibility="invisible"
 				    android:layout_width="wrap_content"
 				    android:layout_height="wrap_content"
 				    android:background="@drawable/lightoff"
@@ -88,8 +88,7 @@
 	           android:layout_width="wrap_content"
 	           android:layout_height="0dp" 
 	       	   android:layout_weight="0.50"
-			   android:gravity="center"> 
-	       	   
+			   android:gravity="center">
 		       
 	  			 <TextView
 				    android:id="@+id/blank3"
@@ -97,9 +96,10 @@
         	   		android:layout_weight="0.15"
 				    android:layout_height="match_parent"/>
 				<TextView
-				    android:id="@+id/exaustor"
+				    android:id="@+id/l2"
+				    android:visibility="invisible"
 				    android:layout_width="wrap_content"
-			 	   android:layout_height="wrap_content"
+			 	    android:layout_height="wrap_content"
 				    android:background="@drawable/lightoff"/>
 				
 	  			 <TextView
@@ -107,8 +107,10 @@
 				    android:layout_width="0dp"
         	   		android:layout_weight="0.15"
 				    android:layout_height="match_parent"/>
+	  			 
 				<TextView
-				    android:id="@+id/tecto"
+				    android:id="@+id/l3"
+				    android:visibility="invisible"
 				    android:layout_width="wrap_content"
 				    android:layout_height="wrap_content"
 				    android:background="@drawable/lightoff"/>
@@ -118,8 +120,10 @@
 				    android:layout_width="0dp"
         	   		android:layout_weight="0.15"
 				    android:layout_height="match_parent"/>
+	  			 
 				<TextView
-				    android:id="@+id/bancada"
+				    android:id="@+id/l4"
+				    android:visibility="invisible"
 				    android:layout_width="wrap_content"
 				    android:layout_height="wrap_content"
 				    android:background="@drawable/lightoff"/>
