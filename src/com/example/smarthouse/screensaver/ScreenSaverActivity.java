@@ -14,6 +14,7 @@ import android.widget.SeekBar;
 import com.example.smarthouse.DataVariables;
 import com.example.smarthouse.InfoArea;
 import com.example.smarthouse.InstantConsumption;
+import com.example.smarthouse.NotificationArea;
 import com.example.smarthouse.R;
 import com.example.smarthouse.mainactivity.MainScreenActivity;
 import com.example.smarthouse.mainactivity.TextClock;
@@ -21,13 +22,17 @@ import com.example.smarthouse.mainactivity.TextClock;
 public class ScreenSaverActivity extends FragmentActivity {
 
 	private ArrayList<InfoArea> _infoAreas;
-	private InfoArea _currentInfo;
 	private FrameLayout _infoArea;
 	private DataVariables _dataVariables;
 	private Handler _handler = new Handler();
 	private Runnable _updateTimeTask = new Runnable() {
+		int index = 0;
 		public void run() {
-			_handler.postDelayed(this, 1000);
+			index++;
+			if(index >= _infoAreas.size())
+				index = 0;
+			_infoAreas.get(index).setFrameLayout(_infoArea);
+			_handler.postDelayed(this, 10000);
 		}
 	};
 	
@@ -39,12 +44,13 @@ public class ScreenSaverActivity extends FragmentActivity {
 		if(!_dataVariables.isWindowInited())
 			_dataVariables.initWindowSize(this);
 		_handler.removeCallbacks(_updateTimeTask);
-		_handler.postDelayed(_updateTimeTask, 1000); 
+		_handler.postDelayed(_updateTimeTask, 0); 
 		initSeekBar();
 		_infoArea = (FrameLayout)findViewById(R.id.InfoArea);
 		new TextClock(this);
-		_currentInfo = new InstantConsumption(this);
-		_currentInfo.setFrameLayout(_infoArea);
+		_infoAreas = new ArrayList<InfoArea>();
+		_infoAreas.add(new InstantConsumption(this));
+		_infoAreas.add(new NotificationArea(this));
 	}
 	
 	@Override

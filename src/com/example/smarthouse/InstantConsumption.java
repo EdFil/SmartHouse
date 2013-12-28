@@ -5,6 +5,7 @@ import java.util.Random;
 import android.app.Activity;
 import android.graphics.Typeface;
 import android.os.Handler;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.FrameLayout;
@@ -40,14 +41,14 @@ public class InstantConsumption implements InfoArea {
 		
 		_consumptionValue = 0;
 		_titleView.setText(TITLE);
-		_titleView.setTextSize((int)(_dataVariables.HEIGHT*0.1));
+		_titleView.setTextSize(TypedValue.COMPLEX_UNIT_PX, _dataVariables.HEIGHT*0.1f);
 		_titleView.setGravity(Gravity.CENTER_HORIZONTAL);
 		_titleView.setTypeface(null, Typeface.BOLD);
 		FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, (int) (_dataVariables.HEIGHT*0.4));
 		params.gravity = Gravity.CENTER;
 		_titleView.setLayoutParams(params);
 		
-		_consumptionView.setTextSize((int)(_dataVariables.HEIGHT*0.07));
+		_consumptionView.setTextSize(TypedValue.COMPLEX_UNIT_PX, _dataVariables.HEIGHT*0.07f);
 		_consumptionView.setTypeface(null, Typeface.ITALIC);
 		_consumptionView.setGravity(Gravity.CENTER);
 		_consumptionView.setLayoutParams(params);

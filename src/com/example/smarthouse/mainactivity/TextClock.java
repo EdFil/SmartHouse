@@ -5,14 +5,14 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.Locale;
 
+import android.app.Activity;
+import android.graphics.Typeface;
+import android.os.Handler;
+import android.util.TypedValue;
+import android.widget.TextView;
+
 import com.example.smarthouse.DataVariables;
 import com.example.smarthouse.R;
-
-import android.app.Activity;
-import android.app.Application;
-import android.os.Handler;
-import android.util.Log;
-import android.widget.TextView;
 
 public class TextClock implements Runnable {
 
@@ -46,11 +46,13 @@ public class TextClock implements Runnable {
 		_dateTextView3 = (TextView) activity.findViewById(R.id.date2);
 		
 		if(_dateTextView1 != null)
-			_dateTextView1.setTextSize((int)(_dataVariables.HEIGHT*0.1));
+			_dateTextView1.setTextSize(TypedValue.COMPLEX_UNIT_PX, _dataVariables.HEIGHT*0.15f);
 		if(_dateTextView2 != null)
-		_dateTextView2.setTextSize((int)(_dataVariables.HEIGHT*0.07));
-		if(_dateTextView3 != null)
-		_dateTextView3.setTextSize((int)(_dataVariables.HEIGHT*0.07));
+			_dateTextView2.setTextSize(TypedValue.COMPLEX_UNIT_PX, _dataVariables.HEIGHT*0.07f);
+		if(_dateTextView3 != null){
+			_dateTextView3.setTextSize(TypedValue.COMPLEX_UNIT_PX, _dataVariables.HEIGHT*0.07f);
+			_dateTextView3.setTypeface(null, Typeface.BOLD);
+		}
 		
 		if (runner == null){ 
            runner = new Thread(this);

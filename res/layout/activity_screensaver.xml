@@ -36,13 +36,13 @@
                 android:id="@+id/date1"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center" />
+                android:gravity="center|fill_vertical" />
 
             <TextView
                 android:id="@+id/date2"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center" />
+                android:gravity="center|fill_vertical" />
         </LinearLayout>
 
     </LinearLayout>

@@ -58,7 +58,7 @@ public class MainScreenActivity extends FragmentActivity{
 			button.setOnClickListener(new View.OnClickListener() {
 				public void onClick(View v) {
 					_dataVariables._currentDivision = _dataVariables._divisions.get(v.getId());
-					startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
+					startActivity(new Intent(getApplicationContext(), DivisionActivity.class));
 	            }
 	        } );
 			row.addView(button,((int)(_dataVariables.WIDTH*0.3)),((int)(_dataVariables.HEIGHT*0.2)));
