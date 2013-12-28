@@ -9,7 +9,7 @@ public class Notification {
 		_description = description;
 	}
 	
-	public String getDescription(){ return _description;}
+	public String getDescription(){ return _description; }
 	
 	
 }
