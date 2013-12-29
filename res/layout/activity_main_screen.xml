@@ -33,24 +33,22 @@
             android:layout_weight=".7"
             android:orientation="horizontal" >
 
-            <TextView
-                android:id="@+id/menuName"
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.3"
-                android:gravity = "center"
-                android:text="Iluminação"
-                tools:ignore="HardcodedText" />
+           <LinearLayout
+               android:id="@+id/Breadcumbs"
+               android:orientation="horizontal"
+               android:layout_width="0dp"
+               android:layout_height="match_parent"
+               android:layout_weight="0.5" >
 
+           </LinearLayout>
 
-                        
            <Button
-                android:id="@+id/historyButton"
-                android:layout_width="0dp"
-                android:layout_height="fill_parent"
-                android:layout_weight="0.1"
-                android:text="Consumo"
-                android:textSize="10dp" />
+               android:id="@+id/historyButton"
+               android:layout_width="0dp"
+               android:layout_height="fill_parent"
+               android:layout_weight="0.2"
+               android:text="Consumo"
+               android:textSize="10dp" />
 
         </LinearLayout>
 

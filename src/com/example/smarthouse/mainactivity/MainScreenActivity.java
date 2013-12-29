@@ -13,6 +13,7 @@ import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
 import android.widget.TextView;
 
+import com.example.smarthouse.Breadcumbs;
 import com.example.smarthouse.DataVariables;
 import com.example.smarthouse.Device;
 import com.example.smarthouse.Division;
@@ -40,14 +41,13 @@ public class MainScreenActivity extends FragmentActivity{
 		if(!_dataVariables.isWindowInited())
 			_dataVariables.initWindowSize(this);
 		_dataVariables._currentAct = this;
-		TextView _menuName = (TextView)findViewById(R.id.menuName);
 		((Button)findViewById(R.id.historyButton)).setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
             }
-        } );;
-		_menuName.setText("Home");
-		_menuName.setTextSize(((int)(_dataVariables.WIDTH*0.05)));
+        } );
+		
+		new Breadcumbs(this);
 		new TextClock(this);
 		
 		TableRow row = null;
