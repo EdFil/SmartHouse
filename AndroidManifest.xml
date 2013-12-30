@@ -95,6 +95,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+                <activity
+            android:name="com.example.smarthouse.MediaActivity"
+            android:label="@string/title_activity_media"
+            android:screenOrientation="landscape" >
+        </activity>
     </application>
 
 </manifest>
