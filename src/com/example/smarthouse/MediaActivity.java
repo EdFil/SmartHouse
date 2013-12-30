@@ -11,7 +11,6 @@ import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.ExpandableListView.OnChildClickListener;
 import android.widget.ExpandableListView.OnGroupClickListener;
-import android.widget.TextView;
 
 import com.example.smarthouse.mainactivity.ExpandableListAdapter;
 import com.example.smarthouse.mainactivity.TextClock;
@@ -19,10 +18,8 @@ import com.example.smarthouse.popupsalerts.moviePopup;
 
 public class MediaActivity extends FragmentActivity {
 
-	private TextClock _textClock;
 	private DataVariables _dataVariables;
-	private Division _division;
-    ExpandableListAdapter listAdapter;
+	ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
@@ -35,12 +32,7 @@ public class MediaActivity extends FragmentActivity {
 		_dataVariables = (DataVariables)getApplication();
 		if(!_dataVariables.isWindowInited())
 			_dataVariables.initWindowSize(this);
-		_division = _dataVariables._currentDivision;
-		TextView _deviceName = (TextView)findViewById(R.id.deviceName);
-		_deviceName.setText(_division.getName()+"-"+_dataVariables._currentDevice.getName());
-		_deviceName.setTextSize(((int)(_dataVariables.WIDTH*0.05)));
-		
-	       // get the listview
+		// get the listview
         expListView = (ExpandableListView) findViewById(R.id.lvExp);
  
         // preparing list data
@@ -51,7 +43,8 @@ public class MediaActivity extends FragmentActivity {
         // setting list adapter
         expListView.setAdapter(listAdapter); 
         
-		_textClock = new TextClock(this);
+        new Breadcumbs(this);
+		new TextClock(this);
 		
         // Listview Group click listener
         expListView.setOnGroupClickListener(new OnGroupClickListener() {
@@ -72,7 +65,7 @@ public class MediaActivity extends FragmentActivity {
             @Override
             public boolean onChildClick(ExpandableListView parent, View v,
                     int groupPosition, int childPosition, long id) {
-                // TODO Auto-generated method stub
+
                 moviePopup dialog = new moviePopup();
 
                 // Supply num input as an argument.

@@ -58,6 +58,15 @@ public class Breadcumbs{
 			}
 			addHistoryButton(activity, true);
 		}
+		else if(activity instanceof MediaActivity){
+			addHomeButton(activity, false);
+			addSeparator(activity);
+			addDivisionButton(activity, false);
+			addSeparator(activity);
+			addDeviceButton(activity, false);
+			addSeparator(activity);
+			addMediaButton(activity, true);
+		}
 	}
 	
 	private void addHomeButton(final Activity activity, boolean end){
@@ -107,6 +116,18 @@ public class Breadcumbs{
 	private void addHistoryButton(final Activity activity, boolean end){
 		Button device = returnNewButton(activity, end);
 		device.setText("Historico");
+		device.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				activity.startActivity(new Intent(activity.getApplicationContext(), DeviceActivity.class));
+            }
+        });
+		_breadcrumbsLayout.addView(device);
+	}
+	
+	
+	private void addMediaButton(final Activity activity, boolean end){
+		Button device = returnNewButton(activity, end);
+		device.setText("Multimedia");
 		device.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				activity.startActivity(new Intent(activity.getApplicationContext(), DeviceActivity.class));
