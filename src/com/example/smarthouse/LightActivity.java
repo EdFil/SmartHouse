@@ -13,10 +13,8 @@ import com.example.smarthouse.mainactivity.TextClock;
 
 public class LightActivity extends Activity {
 
-	private TextClock _textClock;
 	private ToggleButton _toggleButton;
 	private TextView _light;
-	private Division _division;
 	private DataVariables _dataVariables;
 	private TableRow _tablerow;
 	private int lid = 0;
@@ -28,11 +26,8 @@ public class LightActivity extends Activity {
 		_dataVariables = (DataVariables)getApplication();
 		if(!_dataVariables.isWindowInited())
 			_dataVariables.initWindowSize(this);
-		_division = _dataVariables._currentDivision;
-		TextView _menuName = (TextView)findViewById(R.id.menuName);
-		_menuName.setText(_division.getName());
-		_menuName.setTextSize(((int)(_dataVariables.WIDTH*0.05)));
-		_textClock = new TextClock(this);
+		new Breadcumbs(this);
+		new TextClock(this);
 
 		_tablerow = (TableRow ) findViewById(R.id.tableRow1);
 		

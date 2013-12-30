@@ -22,12 +22,9 @@ import com.example.smarthouse.mainactivity.TextClock;
 
 public class DeviceActivity extends FragmentActivity {
 
-	private TextClock _textClock;
 	private DataVariables _dataVariables;
 	private Division _division;
-	private boolean _selected;
-	
-    ExpandableListAdapter listAdapter;
+	ExpandableListAdapter listAdapter;
     ExpandableListView expListView;
     List<String> listDataHeader;
     HashMap<String, List<String>> listDataChild;
@@ -36,16 +33,13 @@ public class DeviceActivity extends FragmentActivity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_device);
-		_selected = false;
 		_dataVariables = (DataVariables)getApplication();
 		if(!_dataVariables.isWindowInited())
 			_dataVariables.initWindowSize(this);
 		_division = _dataVariables._currentDivision;
-		TextView _deviceName = (TextView)findViewById(R.id.deviceName);
-		_deviceName.setText(_division.getName());
-		_deviceName.setTextSize(((int)(_dataVariables.WIDTH*0.05)));
 		
-		_textClock = new TextClock(this);
+		new Breadcumbs(this);
+		new TextClock(this);
 		expListView = (ExpandableListView) findViewById(R.id.lvExp);
 		 
         // preparing list data
@@ -111,8 +105,7 @@ public class DeviceActivity extends FragmentActivity {
                     int groupPosition, int childPosition, long id) {
                 // TODO Auto-generated method stub
             		View frag = getSupportFragmentManager().findFragmentById(R.id.details).getView();
-            		_selected = true;
-                    for(Device d : _dataVariables._currentDivision.getDevices()) {
+            		for(Device d : _dataVariables._currentDivision.getDevices()) {
             	        if(d.getName().equals( listDataChild.get( listDataHeader.get(groupPosition)).get(childPosition)  ) )
             	        	_dataVariables._currentDevice =  d;
                     }
