@@ -144,15 +144,23 @@
 	           android:id="@+id/StaticRow"
 	           android:layout_width="wrap_content"
 	           android:layout_height="0dp" 
-        	   android:layout_weight="0.50">
+        	   android:layout_weight="0.45">
 
 	       </TableRow>
 
 	       <TableRow
+	           android:id="@+id/BlankRow"
+	           android:layout_width="wrap_content"
+	           android:layout_height="0dp" 
+        	   android:layout_weight="0.1">
+
+	       </TableRow>
+	       
+	       <TableRow
 	           android:id="@+id/row1"
 	           android:layout_width="wrap_content"
 	           android:layout_height="0dp" 
-        	   android:layout_weight="0.50">
+        	   android:layout_weight="0.45">
 
 	       </TableRow>
 	      

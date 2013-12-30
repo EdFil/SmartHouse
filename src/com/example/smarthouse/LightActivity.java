@@ -38,6 +38,7 @@ public class LightActivity extends Activity {
 			_toggleButton.setText(_dataVariables._currentDivision.getLights().get(i).getName());
 			_toggleButton.setTextOn(_dataVariables._currentDivision.getLights().get(i).getName());
 			_toggleButton.setTextOff(_dataVariables._currentDivision.getLights().get(i).getName());
+			_toggleButton.setTextSize(19);
 			
 			if(i == 0) {
 				lid = R.id.l1;

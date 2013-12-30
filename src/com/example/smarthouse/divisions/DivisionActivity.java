@@ -51,6 +51,7 @@ public class DivisionActivity extends Activity {
 		button = new Button(this);
 		button.setId(0);
         button.setText("Iluminacao");
+		button.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.lightbulb, 0, 0);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 				Intent i = new Intent(getApplicationContext(), LightActivity.class);
@@ -62,6 +63,7 @@ public class DivisionActivity extends Activity {
         button = new Button(this);
         button.setId(1);
         button.setText("Aparelhos");
+		button.setCompoundDrawablesWithIntrinsicBounds(0, R.drawable.devices, 0, 0);
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 				Intent i = new Intent(getApplicationContext(), DeviceActivity.class);

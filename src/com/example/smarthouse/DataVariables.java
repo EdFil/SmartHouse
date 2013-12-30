@@ -137,7 +137,6 @@ public class DataVariables extends Application {
 		sala.addDevice(new TimedDevice("Televisao"));
 		sala.addDevice(new TimedDevice("PS4"));
 		sala.addDevice(new TimedDevice("Lareira Eletrica"));
-		sala.addDevice(new TimedDevice("Luzes"));
 		sala.addLight(new TimedDevice("Tecto"));
 		sala.addLight(new TimedDevice("Bar"));
 		sala.addLight(new TimedDevice("Candeiro"));
