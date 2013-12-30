@@ -19,8 +19,10 @@ public class TextClock implements Runnable {
 	private DataVariables _dataVariables;
 	private Thread runner;
     private final Runnable updater = new Runnable(){
+    	boolean bool = false;
         public void run(){
-            updateClockValues();
+            updateClockValues(bool);
+            bool = !bool;
         };
      };
     final Handler mHandler = new Handler();
@@ -31,12 +33,14 @@ public class TextClock implements Runnable {
 	private TextView _dateTextView3;
 	
 	SimpleDateFormat _dateDateFormat1;
+	SimpleDateFormat _dateDateFormat11;
 	SimpleDateFormat _dateDateFormat2;
 	SimpleDateFormat _dateDateFormat3;
 	
 	public TextClock(Activity activity){
 		_dataVariables = (DataVariables)activity.getApplication();
 		_dateDateFormat1 = new SimpleDateFormat("HH:mm", Locale.getDefault());
+		_dateDateFormat11 = new SimpleDateFormat("HH mm", Locale.getDefault());
 		_dateDateFormat2 = new SimpleDateFormat("d 'of' MMMM yyyy", Locale.getDefault());
 		_dateDateFormat3 = new SimpleDateFormat("EEEE", Locale.getDefault());
 		
@@ -60,10 +64,14 @@ public class TextClock implements Runnable {
         }
 	}
 	
-	private void updateClockValues(){
+	private void updateClockValues(boolean bool){
 		_currentTime = Calendar.getInstance().getTime();
-		if(_dateTextView1 != null)
-			_dateTextView1.setText(_dateDateFormat1.format(_currentTime.getTime()));
+		if(_dateTextView1 != null){
+			if(bool)
+				_dateTextView1.setText(_dateDateFormat1.format(_currentTime.getTime()));
+			else
+				_dateTextView1.setText(_dateDateFormat11.format(_currentTime.getTime()));
+		}
 		if(_dateTextView2 != null)
 			_dateTextView2.setText(_dateDateFormat2.format(_currentTime.getTime()));
 		if(_dateTextView3 != null)
