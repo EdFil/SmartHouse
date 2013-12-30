@@ -34,6 +34,10 @@ public class DataVariables extends Application {
 	public History _history;
 	public ArrayList<Division> _divisions;	
 
+	public boolean _onHistoryFromMainMenu = false;
+	public boolean _onHistoryFromDivision = false;
+	public boolean _onHistoryFromDevice = false;
+	
 	private Handler _handler = new Handler();
 	private Runnable _generateAlert = new Runnable() {
 		public void run() {
@@ -51,6 +55,21 @@ public class DataVariables extends Application {
 		initDivisions();
 		_handler.removeCallbacks(_generateAlert);
 		_handler.postDelayed(_generateAlert, randBetween(1000, 2000));
+	}
+	
+	public void historyFromMainMenu(){
+		_onHistoryFromMainMenu = true;
+		_onHistoryFromDivision = _onHistoryFromDevice = false;
+	}
+	
+	public void historyFromDevice(){
+		_onHistoryFromDevice = true;
+		_onHistoryFromDivision = _onHistoryFromMainMenu = false;
+	}
+	
+	public void historyFromDivision(){
+		_onHistoryFromDivision = true;
+		_onHistoryFromMainMenu = _onHistoryFromDevice = false;
 	}
 	
 	public boolean isWindowInited(){
@@ -165,5 +184,9 @@ public class DataVariables extends Application {
 	
 	 public static int randBetween(int start, int end) {
 	        return start + (int)Math.round(Math.random() * (end - start));
+	    }
+	 
+	 public float randBetween(float start, float end) {
+	        return start + Math.round(Math.random() * (end - start));
 	    }
 }

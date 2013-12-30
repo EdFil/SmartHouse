@@ -12,6 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.example.smarthouse.divisions.DivisionActivity;
+import com.example.smarthouse.history.HistoryActivity;
 import com.example.smarthouse.mainactivity.MainScreenActivity;
 
 public class Breadcumbs{
@@ -43,6 +44,19 @@ public class Breadcumbs{
 			addDivisionButton(activity, false);
 			addSeparator(activity);
 			addLightButton(activity, true);
+		}
+		else if(activity instanceof HistoryActivity){
+			addHomeButton(activity, false);
+			addSeparator(activity);
+			if(_dataVariables._onHistoryFromDivision){
+				addDivisionButton(activity, false);
+				addSeparator(activity);
+			}
+			else if(_dataVariables._onHistoryFromDevice){
+				addDeviceButton(activity, false);
+				addSeparator(activity);
+			}
+			addHistoryButton(activity, true);
 		}
 	}
 	
@@ -82,6 +96,17 @@ public class Breadcumbs{
 	private void addLightButton(final Activity activity, boolean end){
 		Button device = returnNewButton(activity, end);
 		device.setText("Iluminacao");
+		device.setOnClickListener(new View.OnClickListener() {
+			public void onClick(View v) {
+				activity.startActivity(new Intent(activity.getApplicationContext(), DeviceActivity.class));
+            }
+        });
+		_breadcrumbsLayout.addView(device);
+	}
+	
+	private void addHistoryButton(final Activity activity, boolean end){
+		Button device = returnNewButton(activity, end);
+		device.setText("Historico");
 		device.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				activity.startActivity(new Intent(activity.getApplicationContext(), DeviceActivity.class));

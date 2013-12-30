@@ -6,12 +6,10 @@ import android.support.v4.app.FragmentActivity;
 import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
-import android.widget.HorizontalScrollView;
 import android.widget.LinearLayout;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TableRow.LayoutParams;
-import android.widget.TextView;
 
 import com.example.smarthouse.Breadcumbs;
 import com.example.smarthouse.DataVariables;
@@ -28,7 +26,6 @@ public class MainScreenActivity extends FragmentActivity{
 	private final int NUM_ELEMS_ROW = 3;
 	private DataVariables _dataVariables;
 	private TableLayout _tableLayout;
-	private HorizontalScrollView _hscrollview;
 	private int buttonCount = 0;
 	
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,13 +33,13 @@ public class MainScreenActivity extends FragmentActivity{
 		setContentView(R.layout.activity_main_screen); 
 		
 		_tableLayout = (TableLayout) findViewById(R.id.ButtonTable);
-		_hscrollview = (HorizontalScrollView) findViewById(R.id.NotificationView);
 		_dataVariables = (DataVariables)getApplication();
 		if(!_dataVariables.isWindowInited())
 			_dataVariables.initWindowSize(this);
 		_dataVariables._currentAct = this;
 		((Button)findViewById(R.id.historyButton)).setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				_dataVariables.historyFromMainMenu();
 				startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
             }
         } );

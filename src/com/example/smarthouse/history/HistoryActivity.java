@@ -3,32 +3,36 @@ package com.example.smarthouse.history;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.text.format.Time;
+import android.util.TypedValue;
 import android.view.Gravity;
 import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.FrameLayout;
-import android.widget.LinearLayout;
+import android.widget.TableLayout;
+import android.widget.TableRow;
 import android.widget.TextView;
 
+import com.example.smarthouse.Breadcumbs;
 import com.example.smarthouse.DataVariables;
-import com.example.smarthouse.History;
 import com.example.smarthouse.R;
+import com.example.smarthouse.mainactivity.TextClock;
 
 public class HistoryActivity extends FragmentActivity {
-
-	private static final String TITLE = "Historico";
-	private static final String ROW_1 = "Consumo Mensal: ";
+	
+	private static final String ROW_TITLE_1 = "Consumo Mensal:";
+	private static final String ROW_TITLE_2 = "Title 2:";
+	private static final String ROW_TITLE_3 = "Title 3:";
+	private static final String ROW_TITLE_4 = "Title 4:";
+	private static final String ROW_TITLE_5 = "Title 5:";
+	private static final String ROW_TITLE_6 = "Title 6:";
 	
 	private final String[] MONTH_DAY = {"Janeiro", "Fevereiro", "Marco", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro" };
 	
 	private FrameLayout.LayoutParams _params;
-	private TextView _defaultText;
 	
 	private DataVariables _dataVariables;
-	private History _history;
-	private LinearLayout _leftData, _rightData, _midData;
 	
 	private Time _leftTime, _rightTime;
 	
@@ -42,28 +46,29 @@ public class HistoryActivity extends FragmentActivity {
 		setContentView(R.layout.activity_history);
 		_dataVariables = (DataVariables)getApplication();
 		
+		new Breadcumbs(this);
+		new TextClock(this);
+		
+		//Create params for the textViews
 		_params = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT, LayoutParams.WRAP_CONTENT);
 		_params.gravity = Gravity.CENTER;
 		_params.setMargins(5, 10, 0, 0);
-		_defaultText = new TextView(this);
-		_defaultText.setGravity(Gravity.CENTER);
-		_leftData = (LinearLayout)findViewById(R.id.LeftData);
-		_rightData = (LinearLayout)findViewById(R.id.RightData);
-		_midData = (LinearLayout)findViewById(R.id.MidData);
 		
+		//Setup title rows
+		setTextOnId(0, 1, ROW_TITLE_1);
+		setTextOnId(0, 2, ROW_TITLE_2);
+		setTextOnId(0, 3, ROW_TITLE_3);
+		setTextOnId(0, 4, ROW_TITLE_4);
+		setTextOnId(0, 5, ROW_TITLE_5);
+		setTextOnId(0, 6, ROW_TITLE_6);
+		
+		//Setup the calendar between the buttons
 		_leftTime = new Time();
 		_rightTime = new Time();
 		_leftTime.setToNow();
 		_rightTime.setToNow();
 		prevMonth(_leftTime, _rightTime);
-		
 		setUpViews();
-		((TextView)findViewById(R.id.menuName)).setText(TITLE);
-		((TextView)findViewById(R.id.menuName)).setTextSize(((int)(_dataVariables.WIDTH*0.05)));
-		
-		
-		
-	
 	}
 
 	private void setUpViews() {
@@ -73,13 +78,12 @@ public class HistoryActivity extends FragmentActivity {
 		_rightGoRight = (Button)findViewById(R.id.RightGoRight);
 		_leftMonth = (TextView)findViewById(R.id.LeftMonth);
 		_rightMonth = (TextView)findViewById(R.id.RightMonth);
+		_leftMonth.setTextSize(TypedValue.COMPLEX_UNIT_PX, (int)(_dataVariables.HEIGHT*0.035));
+		_rightMonth.setTextSize(TypedValue.COMPLEX_UNIT_PX, (int)(_dataVariables.HEIGHT*0.035));
 		_leftGoLeft.setText("<");
 		_rightGoLeft.setText("<");
 		_leftGoRight.setText(">");
 		_rightGoRight.setText(">");
-		_leftData.addView(clone(_defaultText), _params);
-		_rightData.addView(clone(_defaultText), _params);
-		_midData.addView(clone(_defaultText), _params);
 		refreshLeftSide();
 		refreshRightSide();
 		refreshMidSide();
@@ -114,21 +118,29 @@ public class HistoryActivity extends FragmentActivity {
 	}
 
 	private void refreshLeftSide(){
-		float consumption = _dataVariables._history.getAllConsumptionFromMonth(_leftTime.month);
-		((TextView)_leftData.getChildAt(1)).setText(String.valueOf(consumption));
+		Float consumption;
+		if(_dataVariables._onHistoryFromMainMenu)
+			consumption = _dataVariables._history.getAllConsumptionFromMonth(_leftTime.month);
+		else
+			consumption = _dataVariables.randBetween(500f, 1000f);
+		setTextOnId(1, 1, consumption.toString());
 		_leftMonth.setText(MONTH_DAY[_leftTime.month] + "\n" + _leftTime.year);
 	}
 	
 	private void refreshRightSide(){
-		float consumption = _dataVariables._history.getAllConsumptionFromMonth(_rightTime.month);
-		((TextView)_rightData.getChildAt(1)).setText(String.valueOf(consumption));
+		Float consumption;
+		if(_dataVariables._onHistoryFromMainMenu)
+			consumption = _dataVariables._history.getAllConsumptionFromMonth(_rightTime.month);
+		else
+			consumption = _dataVariables.randBetween(500f, 1000f);
+		setTextOnId(3, 1, consumption.toString());
 		_rightMonth.setText(MONTH_DAY[_rightTime.month] + "\n" + _rightTime.year);
 	}
 	
 	private void refreshMidSide(){
-		float leftConsumptionValue = Float.parseFloat((String) ((TextView)_leftData.getChildAt(1)).getText());
-		float rightConsumptionValue = Float.parseFloat((String) ((TextView)_rightData.getChildAt(1)).getText());
-		((TextView)_midData.getChildAt(1)).setText(String.valueOf(leftConsumptionValue - rightConsumptionValue));
+		float leftConsumptionValue = Float.valueOf((String) getTextOnId(1, 1).getText());
+		float rightConsumptionValue = Float.valueOf((String) getTextOnId(3, 1).getText());
+		setTextOnId(2, 1, String.valueOf(leftConsumptionValue - rightConsumptionValue));
 	}
 	
 	@Override
@@ -162,12 +174,20 @@ public class HistoryActivity extends FragmentActivity {
 			nextMonth(time, other);
 	}
 	
-	private TextView clone(TextView textView){
-		TextView clone = new TextView(this);
-		clone.setGravity(textView.getGravity());
-		clone.setLayoutParams(_params);
-		return clone;
+	private void setTextOnId(int x, int y, String text){
+		TableLayout table = (TableLayout)findViewById(R.id.HistoryTable);
+		TableRow row = (TableRow)table.getChildAt(y);
+		TextView textView = (TextView)row.getChildAt(x);
+		textView.setText(text);
 	}
 	
+	private TextView getTextOnId(int x, int y){
+		TableLayout table = (TableLayout)findViewById(R.id.HistoryTable);
+		TableRow row = (TableRow)table.getChildAt(y);
+		return (TextView)row.getChildAt(x);
+		
+	}
 }
 
+
+	

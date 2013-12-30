@@ -42,6 +42,7 @@ public class DivisionActivity extends Activity {
 		_tableLayout.addView(row);
 		((Button)findViewById(R.id.historyButton)).setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
+				_dataVariables.historyFromDivision();
 				startActivity(new Intent(getApplicationContext(), HistoryActivity.class));
             }
         } );;

@@ -29,7 +29,7 @@ public class LightActivity extends Activity {
 		new Breadcumbs(this);
 		new TextClock(this);
 
-		_tablerow = (TableRow ) findViewById(R.id.tableRow1);
+		_tablerow = (TableRow ) findViewById(R.id.StaticRow);
 		
 		for (int i = 0 ; i < _dataVariables._currentDivision.getLights().size(); i++) {
 			_toggleButton = new ToggleButton(this);
@@ -141,7 +141,7 @@ public class LightActivity extends Activity {
 	        });
 			_tablerow.addView(_toggleButton,((int)(_dataVariables.WIDTH*0.25)), LayoutParams.MATCH_PARENT);
 			if(i == 1)
-				_tablerow = (TableRow ) findViewById(R.id.tableRow2);
+				_tablerow = (TableRow ) findViewById(R.id.row1);
 		}
 	}
 
